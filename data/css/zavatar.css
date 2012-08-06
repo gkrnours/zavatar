@@ -19,8 +19,7 @@ body {
   body #head, body #foot {
     display: block;
     height: 213px;
-    width: 740px;
-    background-color: #01a8d1; }
+    width: 740px; }
   body #head {
     margin-top: 20px;
     background-image: url("/img/header.png"); }
