@@ -1,0 +1,38 @@
+@import "font";
+@import "color";
+
+.right{
+	float: right !important;
+}
+
+html{
+	background-color: $black;
+	overflow-y: scroll;
+}
+body{
+	margin: auto;
+	width: 740px;
+	background-image: url("/img/bg.main.png");
+	#head, #foot{
+		display: block;
+		height: 213px; width: 740px;
+		background-color: $lighter;
+	}
+	#head{
+		margin-top: 20px;
+		background-image: url("/img/header.png");
+	}
+	#foot{
+		margin-bottom: 20px;
+		background-image: url("/img/footer.png");
+	}
+	@import "menu";
+	@import "main";
+	#disclaimer{
+		margin: 0px;
+		background-image: url("/img/bg.menu.png");
+		p{
+			color: white;
+		}
+	}
+}

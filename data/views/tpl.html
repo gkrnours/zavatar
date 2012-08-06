@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{%block title%}Zavatar{%endblock%}
+		{%block post_title%}{%endblock%}</title>
+	<link rel="StyleSheet" href="/css/zavatar.css"/>
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+	<a href="/" id="head"></a>
+	<ul id="menu">
+		<li><a href="">
+			<img src="/img/teddy.png"> Accueil
+		</a></li>
+		<li><a href="">
+			<img src="/img/zombie.gif"> Zavatariens
+		</a></li>
+		<li><a href="/ask">
+			<img src="/img/harcel.png"> Demander
+		</a></li>
+		<li><a href="">
+			<img src="/img/meaty.gif"> Etre gentil
+		</a></li>
+		<li><a href="">
+			<img src="/img/chat.gif"> Discuter
+		</a></li>
+		<li class="right"><a href="">
+			<img src="/img/death.gif"> Partir
+		</a></li>
+	</ul>
+	<div id="main">{%block main%}
+	{%endblock main%}	</div>
+	<div id="foot"></div>
+</body>
+</html>
