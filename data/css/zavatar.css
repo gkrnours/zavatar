@@ -1,16 +1,11 @@
-/*
-5dd7ff
-01A8D1
-006C91
-004055
-003242
-*/
+@import url("/css/libertine/font.css");
 .right {
   float: right !important; }
 
 html {
   background-color: #070401;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  font-family: "Linux Libertine", serif; }
 
 body {
   margin: auto;
@@ -19,7 +14,8 @@ body {
   body #head, body #foot {
     display: block;
     height: 213px;
-    width: 740px; }
+    width: 740px;
+    background-color: #01a8d1; }
   body #head {
     margin-top: 20px;
     background-image: url("/img/header.png"); }
@@ -46,20 +42,74 @@ body {
         display: block;
         padding: 0px 10px 0px 20px;
         height: 20px;
-        line-height: 16px;
+        line-height: 20px;
         color: #070401;
-        text-decoration: none; }
+        text-decoration: none;
+        transition: background linear 200ms;
+        -webkit-transition: background-color linear 200ms;
+        -moz-transition: background linear 200ms;
+        -ie-transition: background linear 200ms;
+        -o-transition: background linear 200ms; }
         body #menu li a img {
           position: absolute;
           bottom: 2px;
           left: 2px; }
         body #menu li a:hover {
-          background-color: rgba(0, 0, 0, 0.15); }
+          background-color: rgba(0, 0, 0, 0.22); }
   body #main {
     padding: 0px 10px; }
     body #main a.btn {
+      padding: 0px 3px;
+      color: black;
+      text-decoration: none;
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
+  body form hr {
+    border-top: 1px solid #8a7b3b;
+    border-right: 3px solid #8a7b3b;
+    border-bottom: 2px solid #bcb27d;
+    border-left: 3px solid #bcb27d; }
+  body form h3 {
+    margin: 20px 0px 5px 0px; }
+  body form label {
+    padding: 0px 3px;
+    margin: 0px 10px 10px 0px;
+    background-image: url("/img/btn.png");
+    border: 2px solid #6f6025;
+    cursor: pointer; }
+  body form input[type="radio"] {
+    display: none; }
+  body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
+    padding: 0px 3px;
+    margin: 0px 10px 0px 0px;
+    background-image: url("/img/btn.png");
+    border: 2px solid #6f6025;
+    cursor: pointer; }
+    body form input[type="submit"].L, body form input[type="button"].L, body form input[type="reset"].L {
+      display: inline-block;
+      padding: 5px 10px;
+      width: 34.5%; }
+  body form textarea {
+    margin: 3px 0px 0px 0px;
+    width: 500px;
+    height: 150px;
+    background-image: url("/img/bg.menu.png");
+    color: #bcb27d;
+    border: 2px solid #6f6025; }
+    body form textarea:focus {
+      outline: none; }
+  body form ul.aside {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    width: 200px; }
+    body form ul.aside li {
+      margin: 0px 0px 5px 0px;
+      padding: 0px;
+      list-style: none; }
+      body form ul.aside li.head {
+        font-size: 20px;
+        font-weight: bold; }
   body #disclaimer {
     margin: 0px;
     background-image: url("/img/bg.menu.png"); }

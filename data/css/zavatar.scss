@@ -8,6 +8,7 @@
 html{
 	background-color: $black;
 	overflow-y: scroll;
+	font-family: "Linux Libertine", serif;
 }
 body{
 	margin: auto;
@@ -28,6 +29,7 @@ body{
 	}
 	@import "menu";
 	@import "main";
+	@import "form";
 	#disclaimer{
 		margin: 0px;
 		background-image: url("/img/bg.menu.png");

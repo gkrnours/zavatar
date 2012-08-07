@@ -1,1 +1,3 @@
 .cloudnode.appconfig
+.*
+*.swp

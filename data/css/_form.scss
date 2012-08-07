@@ -1,0 +1,54 @@
+form{
+	hr{
+		border-top: 1px solid $dark;
+		border-right: 3px solid $dark;
+		border-bottom: 2px solid $light;
+		border-left: 3px solid $light;
+	}
+	h3{
+		margin: 20px 0px 5px 0px;
+	}
+	label{
+		padding: 0px 3px; margin: 0px 10px 10px 0px;
+		background-image: url("/img/btn.png");
+		border: 2px solid $darker;
+		cursor: pointer;
+	}
+	input[type="radio"]{
+		display: none;
+	}
+	input[type="submit"], input[type="button"], input[type="reset"]{
+		padding: 0px 3px; margin: 0px 10px 0px 0px;
+		background-image: url("/img/btn.png");
+		border: 2px solid $darker;
+		cursor: pointer;
+		&.L{
+			display: inline-block;
+			padding: 5px 10px;
+			width: 34.5%;
+		}
+	}
+	textarea{
+		margin: 3px 0px 0px 0px;
+		width: 500px; height: 150px;
+		background-image: url("/img/bg.menu.png");
+		color: $light;
+		border: 2px solid $darker;
+		&:focus{
+			outline: none;
+		}
+	}
+	ul.aside{
+		float: right;
+		margin: 0px; padding: 0px;
+		width: 200px;
+		li{
+			margin: 0px 0px 5px 0px; padding: 0px;
+			list-style: none;
+			&.head{
+				font-size: 20px;
+				font-weight: bold;
+			}
+		}
+	}
+}
