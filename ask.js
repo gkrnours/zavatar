@@ -9,3 +9,9 @@ this.form = function(req, res){
 	res.render("ask_form", tpl_val)
 }
 
+this.process = function(req, res){
+	res.send([
+		req.body, 
+		])
+}
+

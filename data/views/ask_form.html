@@ -2,7 +2,7 @@
 
 {% block main %}
 		<h2>Demander un avatar</h2>
-		<form>
+		<form method="post">
 			<p>
 				<h3>Animation de l'avatar</h3>
 				<input type="radio" id="fixe" name="anim" value="0">
@@ -20,7 +20,7 @@
 				<h3>Description</h3>
 				<ul class="aside">
 					<li class="head">Avez vous déjà dit ?</li>
-					<li>La taille souhaité ?</li>
+					<li>La taille souhaité</li>
 					<li>La couleur dominante</li>
 				</ul>
 				<textarea id="desc" name="desc"></textarea>

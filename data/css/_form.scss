@@ -16,11 +16,24 @@ form{
 	}
 	input[type="radio"]{
 		display: none;
+		&+label{
+			padding-left: 10px;
+			background: url("/img/btn.radio.png") left top;
+			-webkit-transition: background-position-y ease 400ms;
+			-moz-transition: background-position-y ease 400ms;
+			-ie-transition: background-position-y ease 400ms;
+			-o-transition: background-position-y ease 400ms;
+			transition: background-position-y ease 400ms;
+		}
+		&:checked+label{
+			background-position-y: bottom;
+		}
 	}
 	input[type="submit"], input[type="button"], input[type="reset"]{
 		padding: 0px 3px; margin: 0px 10px 0px 0px;
 		background-image: url("/img/btn.png");
 		border: 2px solid $darker;
+		font-family: "Linux Libertine";
 		cursor: pointer;
 		&.L{
 			display: inline-block;

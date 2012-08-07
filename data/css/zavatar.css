@@ -5,7 +5,8 @@
 html {
   background-color: #070401;
   overflow-y: scroll;
-  font-family: "Linux Libertine", serif; }
+  font-family: "Linux Libertine", serif;
+  color: #070401; }
 
 body {
   margin: auto;
@@ -25,19 +26,18 @@ body {
   body #menu {
     margin: 0px;
     padding: 0px 10px;
-    height: 28px;
+    height: 32px;
     background-image: url("/img/bg.menu.png"); }
     body #menu li {
       float: left;
       position: relative;
-      margin: 0px;
-      margin-left: 10px;
+      margin: 10px 0px 0px 10px;
       padding: 0px;
       height: 20px;
       background-image: url("/img/btn.png");
       list-style: none;
       border: 2px solid #6f6025;
-      border-top: none; }
+      border-bottom: none; }
       body #menu li a {
         display: block;
         padding: 0px 10px 0px 20px;
@@ -79,11 +79,22 @@ body {
     cursor: pointer; }
   body form input[type="radio"] {
     display: none; }
+    body form input[type="radio"] + label {
+      padding-left: 10px;
+      background: url("/img/btn.radio.png") left top;
+      -webkit-transition: background-position-y ease 400ms;
+      -moz-transition: background-position-y ease 400ms;
+      -ie-transition: background-position-y ease 400ms;
+      -o-transition: background-position-y ease 400ms;
+      transition: background-position-y ease 400ms; }
+    body form input[type="radio"]:checked + label {
+      background-position-y: bottom; }
   body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
     padding: 0px 3px;
     margin: 0px 10px 0px 0px;
     background-image: url("/img/btn.png");
     border: 2px solid #6f6025;
+    font-family: "Linux Libertine";
     cursor: pointer; }
     body form input[type="submit"].L, body form input[type="button"].L, body form input[type="reset"].L {
       display: inline-block;
