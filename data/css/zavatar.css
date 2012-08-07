@@ -82,13 +82,13 @@ body {
     body form input[type="radio"] + label {
       padding-left: 10px;
       background: url("/img/btn.radio.png") left top;
-      -webkit-transition: background-position-y ease 400ms;
-      -moz-transition: background-position-y ease 400ms;
-      -ie-transition: background-position-y ease 400ms;
-      -o-transition: background-position-y ease 400ms;
-      transition: background-position-y ease 400ms; }
+      -webkit-transition: background-position ease 400ms;
+      -moz-transition: background-position ease 400ms;
+      -ie-transition: background-position ease 400ms;
+      -o-transition: background-position ease 400ms;
+      transition: background-position ease 400ms; }
     body form input[type="radio"]:checked + label {
-      background-position-y: bottom; }
+      background-position: bottom left; }
   body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
     padding: 0px 3px;
     margin: 0px 10px 0px 0px;

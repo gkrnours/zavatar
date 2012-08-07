@@ -11,7 +11,7 @@ this.form = function(req, res){
 
 this.process = function(req, res){
 	res.send([
-		req.body, 
+		req.body
 		])
 }
 

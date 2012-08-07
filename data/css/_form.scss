@@ -19,14 +19,14 @@ form{
 		&+label{
 			padding-left: 10px;
 			background: url("/img/btn.radio.png") left top;
-			-webkit-transition: background-position-y ease 400ms;
-			-moz-transition: background-position-y ease 400ms;
-			-ie-transition: background-position-y ease 400ms;
-			-o-transition: background-position-y ease 400ms;
-			transition: background-position-y ease 400ms;
+			-webkit-transition: background-position ease 400ms;
+			-moz-transition: background-position ease 400ms;
+			-ie-transition: background-position ease 400ms;
+			-o-transition: background-position ease 400ms;
+			transition: background-position ease 400ms;
 		}
 		&:checked+label{
-			background-position-y: bottom;
+			background-position: bottom left;
 		}
 	}
 	input[type="submit"], input[type="button"], input[type="reset"]{

@@ -3,28 +3,30 @@
 {% block main %}
 		<h2>Demander un avatar</h2>
 		<form method="post">
+			<h3>Animation de l'avatar</h3>
 			<p>
-				<h3>Animation de l'avatar</h3>
 				<input type="radio" id="fixe" name="anim" value="0">
 				<label for="fixe">
 					Aucune animation
 				</label>
+
 				<input type="radio" id="simple" name="anim" value="1">
 				<label for="simple">
 					Animation simple
 				</label>
+
 				<input type="radio" id="full" name="anim" value="2">
 				<label for="full">
 					Avatar avec scenario
 				</label>
-				<h3>Description</h3>
-				<ul class="aside">
-					<li class="head">Avez vous déjà dit ?</li>
-					<li>La taille souhaité</li>
-					<li>La couleur dominante</li>
-				</ul>
-				<textarea id="desc" name="desc"></textarea>
 			</p>
+			<h3>Description</h3>
+			<ul class="aside">
+				<li class="head">Avez vous déjà dit ?</li>
+				<li>La taille souhaité</li>
+				<li>La couleur dominante</li>
+			</ul>
+			<textarea id="desc" name="desc"></textarea>
 			<hr>
 			<p>
 				<input type="submit" class="L" value="J'ai relu et je valide ma commande">
