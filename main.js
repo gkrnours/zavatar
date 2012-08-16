@@ -9,3 +9,12 @@ this.home = function(req, res){
 	res.render("home", tpl_val)
 }
 
+this.signin = function(req, res){
+	tpl_val = {}//util.mk_tpl_val(req)
+	res.render("signin", tpl_val)
+}
+
+this.login = function(req, res){
+	// read xml and co
+	res.redirect("/login")
+}

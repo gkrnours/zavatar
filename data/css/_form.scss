@@ -10,13 +10,29 @@ form{
 	}
 	label{
 		padding: 0px 3px; margin: 0px 10px 10px 0px;
-		background-image: url("/img/btn.png");
+		background-image: url("/img/bg.light.png");
 		border: 2px solid $darker;
 		cursor: pointer;
+		&.fixe{
+			display: inline-block;
+			min-width: 100px;
+		}
+	}
+	input[type="text"], input[type="password"]{
+		background-image: url("/img/bg.medium.png");
+		border: 2px inset $darker;
+		&.L{
+			display: inline-block;
+			width: 300px;
+		}
+		&:focus{
+			outline-color: $darker;
+		}
 	}
 	input[type="radio"]{
 		display: none;
 		&+label{
+			min-width: 0px;
 			padding-left: 10px;
 			background: url("/img/btn.radio.png") left top;
 			-webkit-transition: background-position ease 400ms;
@@ -31,7 +47,7 @@ form{
 	}
 	input[type="submit"], input[type="button"], input[type="reset"]{
 		padding: 0px 3px; margin: 0px 10px 0px 0px;
-		background-image: url("/img/btn.png");
+		background-image: url("/img/bg.light.png");
 		border: 2px solid $darker;
 		font-family: "Linux Libertine";
 		cursor: pointer;
@@ -39,6 +55,11 @@ form{
 			display: inline-block;
 			padding: 5px 10px;
 			width: 34.5%;
+		}
+		&.XL{
+			display: inline-block;
+			padding: 5px 10px;
+			width: 70%;
 		}
 	}
 	textarea{
