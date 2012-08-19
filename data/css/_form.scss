@@ -1,13 +1,13 @@
 fieldset{
-	margin: 0px;
+	margin: 0px; padding: 10px 10px 0px ;
 	border: 2px solid $black;
 	&.col{
 		float: left;
-		width: 310px;
+		width: 320px;
 		margin-left: 0px;
-	}
-	& + &{
-		margin-left: 40px;
+		&+fieldset{
+			margin-left: 20px;
+		}
 	}
 	&+hr{
 		clear: left;
@@ -27,7 +27,7 @@ form{
 		margin: 20px 0px 5px 0px;
 	}
 	label{
-		padding: 0px 3px; margin: 0px 10px 10px 0px;
+		padding: 0px 3px; margin: 0px 10px 0px 0px;
 		background-image: url("/img/bg.light.png");
 		border: 2px solid $darker;
 		cursor: pointer;
@@ -37,22 +37,23 @@ form{
 		}
 	}
 	input[type="text"], input[type="password"]{
+		padding: 0px 1px; margin-bottom: 10px;
 		background-image: url("/img/bg.medium.png");
 		border: 2px inset $darker;
 		&.L{
 			display: inline-block;
-			width: 300px;
+			width: 315px;
 		}
 		&:focus{
 			outline-color: $darker;
 		}
 	}
-	input[type="radio"]{
+	input[type="radio"], input[type="checkbox"]{
 		display: none;
 		&+label{
 			min-width: 0px;
-			padding-left: 10px;
-			background: url("/img/btn.radio.png") left top;
+			padding-left: 14px;
+			background: url("/img/btn.checkable.gif") left top;
 			-webkit-transition: background-position ease 400ms;
 			-moz-transition: background-position ease 400ms;
 			-ie-transition: background-position ease 400ms;
@@ -61,6 +62,11 @@ form{
 		}
 		&:checked+label{
 			background-position: bottom left;
+		}
+		&+label.L{
+			display: inline-block;
+			width: 230px;
+			padding-left: 15px;	margin-bottom: 2px;
 		}
 	}
 	input[type="submit"], input[type="button"], input[type="reset"]{
@@ -73,7 +79,7 @@ form{
 		&.L{
 			display: inline-block;
 			padding: 5px 10px;
-			width: 34.5%;
+			width: 42%;
 		}
 		&.XL{
 			display: inline-block;
