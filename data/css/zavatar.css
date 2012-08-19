@@ -117,11 +117,12 @@ body {
       display: inline-block;
       padding: 5px 10px;
       width: 70%; }
-    body form input[type="submit"]:hover, body form input[type="button"]:hover, body form input[type="reset"]:hover {
+    body form input[type="submit"]:hover, body form input[type="submit"]:focus, body form input[type="button"]:hover, body form input[type="button"]:focus, body form input[type="reset"]:hover, body form input[type="reset"]:focus {
       position: relative;
       top: 1px;
       left: 1px;
-      box-shadow: 1px 1px 1px #070401; }
+      box-shadow: 1px 1px 1px #070401;
+      outline: none; }
     body form input[type="submit"]:active, body form input[type="button"]:active, body form input[type="reset"]:active {
       position: relative;
       top: 2px;

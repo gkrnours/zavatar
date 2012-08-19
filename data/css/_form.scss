@@ -62,10 +62,11 @@ form{
 			padding: 5px 10px;
 			width: 70%;
 		}
-		&:hover{
+		&:hover, &:focus{
 			position: relative;
 				top: 1px; left: 1px;
 			box-shadow: 1px 1px 1px $black;
+			outline: none;
 		}
 		&:active{
 			position: relative;
