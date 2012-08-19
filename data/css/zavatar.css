@@ -21,6 +21,7 @@ body {
     margin-top: 20px;
     background-image: url("/img/header.png"); }
   body #foot {
+    margin-top: 20px;
     margin-bottom: 20px;
     background-image: url("/img/footer.png"); }
   body #menu {
@@ -64,6 +65,18 @@ body {
       text-decoration: none;
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
+  body fieldset {
+    margin: 0px;
+    border: 2px solid #070401; }
+    body fieldset.col {
+      float: left;
+      width: 310px;
+      margin-left: 0px; }
+    body fieldset + body fieldset {
+      margin-left: 40px; }
+    body fieldset + hr {
+      clear: left;
+      border: none; }
   body form hr {
     border-top: 1px solid #8a7b3b;
     border-right: 3px solid #8a7b3b;

@@ -1,3 +1,21 @@
+fieldset{
+	margin: 0px;
+	border: 2px solid $black;
+	&.col{
+		float: left;
+		width: 310px;
+		margin-left: 0px;
+	}
+	& + &{
+		margin-left: 40px;
+	}
+	&+hr{
+		clear: left;
+		border: none;
+	}
+	legend{
+	}
+}
 form{
 	hr{
 		border-top: 1px solid $dark;

@@ -1,9 +1,36 @@
 var wget = require("request")
 var x2js = require("xml2js")
-var redis = require("redis")
+var db   = require("./db.js")
+var bin  = require("./bin.js")
 var util = require("./util.js")
 var p = new x2js.Parser()
-var r = new redis.createClient()
+
+function auto(){
+}
+function manual(req, res){
+	ukey = "user:"+req.body.uid+":data"
+	db.r.hgetall([ukey], function(rep, err){
+		console.log("err = ")
+		console.log(err)
+		console.log("rep = ")
+		console.log(rep)
+		if(rep == null && typeof(process.env.DBHOST) == "undefined"){
+			db.r.hmset([ukey, "pass", req.body.pass, "access", bin.set(0, [1])],
+				function(rep, err){
+					console.log(rep)
+					res.redirect("/?m=register")
+				}
+			)
+			return
+		}
+		if(rep.pass == req.body.pass){
+			req.session.me = rep
+			res.redirect("/?m=connected")
+			return
+		}
+		res.redirect("/login?e=nologin")
+	})
+}
 
 this.home = function(req, res){
 	tpl_val = {}//util.mk_tpl_val(req)
@@ -16,6 +43,8 @@ this.signin = function(req, res){
 }
 
 this.login = function(req, res){
-	// read xml and co
-	res.redirect("/login")
+	if(req.body.kind == "manual")
+		manual(req, res) 
+	else
+		auto(req, res)
 }

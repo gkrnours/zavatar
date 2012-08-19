@@ -62,3 +62,7 @@ this.mk_tpl_val = function mk_tpl_val(req){
 	}
 	return tpl_val
 }
+
+this.isAdmin = function(req, res, next){
+	return next()
+}
