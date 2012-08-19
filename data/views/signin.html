@@ -4,11 +4,13 @@
 		<h2>Connexion Manuelle</h2>
 		<form method="post">
 			<p>
-				<label for="nick" class="fixe">Pseudo</label>
-				<input type="text" name="nick" id="nick" class="L">
+				<label for="uid" class="fixe">Identifiant</label>
+				<input type="text" name="uid" id="uid" class="L">
 				<br>
 				<label for="pass" class="fixe">Mot de Passe</label>
 				<input type="password" name="pass" id="pass" class="L">
+				<br>
+				DBHOST = {{env.DBHOST}}
 			</p>
 			<hr>
 			<p>

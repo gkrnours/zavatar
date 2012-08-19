@@ -45,6 +45,7 @@ this.process = function(flux){
 this.mk_tpl_val = function mk_tpl_val(req){
 	tpl_val = {} 
 	tpl_val.now = Date()
+	tpl_val.env = process.env
 	if(req && req.session) {
 		if(req.session.me)
 			tpl_val.me = req.session.me
