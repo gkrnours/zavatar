@@ -99,6 +99,9 @@ body {
     body form label.fixe {
       display: inline-block;
       min-width: 100px; }
+    body form label.M {
+      display: inline-block;
+      width: 170px; }
     body form label.todo {
       background: none;
       border: none; }
@@ -108,9 +111,14 @@ body {
     margin-left: 0px;
     background-image: url("/img/bg.medium.png");
     border: 2px inset #6f6025; }
+    body form input[type="text"].S, body form input[type="password"].S {
+      display: inline-block;
+      width: 115px; }
     body form input[type="text"].L, body form input[type="password"].L {
       display: inline-block;
       width: 315px; }
+    body form input[type="text"].dis, body form input[type="password"].dis {
+      color: #070401; }
     body form input[type="text"]:focus, body form input[type="password"]:focus {
       outline-color: #6f6025; }
   body form input[type="radio"], body form input[type="checkbox"] {
@@ -134,7 +142,7 @@ body {
     body form input[type="radio"] + label.todo, body form input[type="checkbox"] + label.todo {
       padding-left: 0px;
       background: none; }
-    body form input[type="radio"]:checked + label, body form input[type="checkbox"]:checked + label {
+    body form input[type="radio"]:checked + label.todo, body form input[type="checkbox"]:checked + label.todo {
       text-decoration: line-through; }
   body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
     padding: 0px 3px;
