@@ -25,8 +25,13 @@
 		</fieldset>
 		<fieldset class="col">
 			<legend>Statistique</legend>
-			<form method="post">
-				<h3>Animation de l'avatar</h3>
+			<form>
+				<label class="M">Nombre de sujet ouvert</label>
+				<input type="text" class="S dis" disabled 
+					value="{%if him.thread%}{{him.thread}}{%else%}0{%endif%}">
+				<label class="M limited">Nombre de message écrit</label>
+				<input type="text" class="S dis" disabled 
+					value="{%if him.thread%}{{him.post}}{%else%}0{%endif%}">
 			</form>
 		</fieldset>
 		<hr>
