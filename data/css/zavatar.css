@@ -99,6 +99,9 @@ body {
     body form label.fixe {
       display: inline-block;
       min-width: 100px; }
+    body form label.todo {
+      background: none;
+      border: none; }
   body form input[type="text"], body form input[type="password"] {
     padding: 0px 1px;
     margin-bottom: 10px;
@@ -128,6 +131,11 @@ body {
       width: 230px;
       padding-left: 15px;
       margin-bottom: 2px; }
+    body form input[type="radio"] + label.todo, body form input[type="checkbox"] + label.todo {
+      padding-left: 0px;
+      background: none; }
+    body form input[type="radio"]:checked + label, body form input[type="checkbox"]:checked + label {
+      text-decoration: line-through; }
   body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
     padding: 0px 3px;
     margin: 0px 10px 0px 0px;
