@@ -10,12 +10,12 @@ function auto(){
 function manual(req, res){
 	ukey = "user:"+req.body.uid+":data"
 	db.r.hgetall([ukey], function(rep, err){
-		console.log("err = ")
-		console.log(err)
-		console.log("rep = ")
-		console.log(rep)
 		if(rep == null && typeof(process.env.DBHOST) == "undefined"){
-			db.r.hmset([ukey, "pass", req.body.pass, "access", bin.set(0, [1])],
+			db.r.hmset(
+				[ukey,
+					"uid", req.body.uid,
+					"pass", req.body.pass, 
+					"access", bin.set(0, [1,2,3,4])],
 				function(rep, err){
 					console.log(rep)
 					res.redirect("/?m=register")
@@ -39,6 +39,7 @@ this.home = function(req, res){
 
 this.signin = function(req, res){
 	tpl_val = util.mk_tpl_val(req)
+	console.log(tpl_val.me)
 	res.render("signin", tpl_val)
 }
 
