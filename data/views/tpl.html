@@ -26,9 +26,12 @@
 		<li><a href="">
 			<img src="/img/icon/chat.gif"> Discuter
 		</a></li>
-		<li class="right"><a href="">
-			<img src="/img/icon/death.gif"> Partir
-		</a></li>
+		<li class="right">
+			{% if me %}<a href="/logout">
+				<img src="/img/icon/death.gif"> Partir
+			{% else %}<a href="/login">
+				<img src="/img/icon/h_door.gif"> &nbsp;Entrer
+		{% endif %}</a></li>
 	</ul>
 	<div id="main">{%block main%}
 	{%endblock main%}	</div>

@@ -33,7 +33,7 @@ function manual(req, res){
 }
 
 this.home = function(req, res){
-	tpl_val = {}//util.mk_tpl_val(req)
+	tpl_val = util.mk_tpl_val(req)
 	res.render("home", tpl_val)
 }
 
@@ -47,4 +47,7 @@ this.login = function(req, res){
 		manual(req, res) 
 	else
 		auto(req, res)
+}
+this.logout = function(req, res){
+	req.session.me = null
 }
