@@ -2,12 +2,15 @@
 
 {% block main %}
 {% include "lib_access" %}
-		<h2>Fiche de {{him.name}}</h2>
+		<h2>Fiche #{{him.uid}} - {{him.name}}</h2>
 		<fieldset class="col">
 			<legend>Données</legend>
 			<form method="post">
 				<label for="name" class="fixe">Nom :</label><br>
 				<input type="text" class="L" id="name" name="name" value="{{him.name}}">
+				<br>
+				<label for="pass" class="fixe">Mot de passe :</label><br>
+				<input type="text" class="L" id="pass" name="pass">
 				<br>
 	{{ btn_access(him.access, 1, "admin", "Administrateur") }}
 	{{ btn_access(him.access, 2, "modo",  "Modérateur") }}
