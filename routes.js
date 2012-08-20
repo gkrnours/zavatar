@@ -16,8 +16,8 @@ this.setup = function setup(app){
 	app.get("/ask", ask.form)
 	app.post("/ask", ask.process)
 
-	app.get( "/user/:id", util.isAdmin, user.shape)
-	app.post("/user/:id", util.isAdmin, user.alter)
+	app.get( "/user/:id", user.shape)
+	app.post("/user/:id", user.alter)
 	app.get("/user/:id", user.view)
 	app.get("/user/?", user.search)
 	app.post("/user", user.searching)
