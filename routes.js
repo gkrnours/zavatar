@@ -11,6 +11,7 @@ this.setup = function setup(app){
 	app.get("/", main.home)
 	app.get("/login", main.signin)
 	app.post("/login", main.login)
+	app.get("/logout", main.signin)
 	
 	app.get("/ask", ask.form)
 	app.post("/ask", ask.process)
@@ -19,7 +20,7 @@ this.setup = function setup(app){
 	app.post("/user/:id", util.isAdmin, user.alter)
 	app.get("/user/:id", user.view)
 	app.get("/user/?", user.search)
-	app.post("/user/?", user.search)
+	app.post("/user", user.searching)
 }
 
 
