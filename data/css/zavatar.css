@@ -78,6 +78,11 @@ body {
     body fieldset + hr {
       clear: left;
       border: none; }
+    body fieldset legend {
+      padding: 0px 5px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 8px 0px 0px 0px; }
   body form hr {
     border-top: 1px solid #8a7b3b;
     border-right: 3px solid #8a7b3b;
@@ -97,6 +102,7 @@ body {
   body form input[type="text"], body form input[type="password"] {
     padding: 0px 1px;
     margin-bottom: 10px;
+    margin-left: 0px;
     background-image: url("/img/bg.medium.png");
     border: 2px inset #6f6025; }
     body form input[type="text"].L, body form input[type="password"].L {

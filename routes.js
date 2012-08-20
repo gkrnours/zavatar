@@ -18,6 +18,8 @@ this.setup = function setup(app){
 	app.get( "/user/:id", util.isAdmin, user.shape)
 	app.post("/user/:id", util.isAdmin, user.alter)
 	app.get("/user/:id", user.view)
+	app.get("/user/?", user.search)
+	app.post("/user/?", user.search)
 }
 
 
