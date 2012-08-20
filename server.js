@@ -12,7 +12,8 @@ var app = express()
 var views_dir = __dirname+"/data/views"
 
 app.configure(function(){
-	require("swig").init({cache: false, root: views_dir})
+	require("swig").init({cache: false, root: views_dir,
+		filters: require("./filters.js")})
 	app.engine("html", template.swig)
 	app.set("view engine", "html")
 	app.set("views", views_dir)

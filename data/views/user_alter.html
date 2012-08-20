@@ -1,6 +1,7 @@
 {% extends "tpl.html" %}
 
 {% block main %}
+{% include "lib_access" %}
 		<h2>Fiche de {{him.name}}</h2>
 		<fieldset class="col">
 			<legend>Données</legend>
@@ -8,14 +9,10 @@
 				<label for="name" class="fixe">Nom :</label><br>
 				<input type="text" class="L" id="name" name="name" value="{{him.name}}">
 				<br>
-				<input  id="a_admin" name="access" value="1" type="checkbox" >
-				<label for="a_admin" class="L">Administrateur</label>
-				<input  id="a_modo" name="access" value="2" type="checkbox" >
-				<label for="a_modo" class="L">Moderateur</label>
-				<input  id="a_write" name="access" value="3" type="checkbox" >
-				<label for="a_write" class="L">Peut écrire</label>
-				<input  id="a_image" name="access" value="4" type="checkbox" >
-				<label for="a_image" class="L">Peut poster une image</label>
+	{{ btn_access(him.access, 1, "admin", "Administrateur") }}
+	{{ btn_access(him.access, 2, "modo",  "Modérateur") }}
+	{{ btn_access(him.access, 3, "write", "Peut écrire") }}
+	{{ btn_access(him.access, 4, "image", "Peut poster une image") }}
 				<hr>
 				<p>
 					<input type="submit" class="L" value="Enregistrer">
