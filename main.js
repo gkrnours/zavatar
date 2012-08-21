@@ -9,7 +9,7 @@ function auto(){
 }
 function manual(req, res){
 	ukey = "user:"+req.body.uid+":data"
-	db.r.hgetall([ukey], function(rep, err){
+	db.r.hgetall([ukey], function(err, rep){
 		if(rep == null && typeof(process.env.DBHOST) == "undefined"){
 			db.r.hmset(
 				[ukey,
