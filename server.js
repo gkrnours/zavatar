@@ -29,7 +29,7 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(express.cookieParser("greenish teddy"));
 	app.use(express.session({store: new rsStore(), secret:"greenish teddy",
-								cookie: {maxAge: 180*1000}}));
+								cookie: {maxAge: 4*60*60*1000}}));
 	app.use(app.router);
 //	app.use(routes.err.gotcha) // check if the error is known
 //	app.use(routes.err.generic)// throw pretty error at the user
