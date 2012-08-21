@@ -9,6 +9,20 @@
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
+	<ul id="debug">
+		<li>{{me}}</li>
+		{% for x in me %}
+			{{x}}
+		{% endfor %}
+		<hr>
+		<li>{{ses}}</li>
+		{% for x in ses %}
+		<li>{{loop.key}} - {{x}}</li>
+			{% for y in x %}
+				<li>{{loop.key}} - {{y}}</li>
+			{% endfor %}
+		{% endfor %}
+	</ul>
 	<a href="/" id="head"></a>
 	<ul id="menu">
 		<li><a href="">

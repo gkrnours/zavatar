@@ -1,4 +1,29 @@
 @import url("/css/libertine/font.css");
+#debug {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 20px;
+  background: #070401;
+  color: #01a8d1;
+  border: 1px solid #01a8d1;
+  border-left: none;
+  border-top: none;
+  overflow: hidden;
+  -webkit-transition: width 400ms ease; }
+  #debug:hover {
+    width: 400px; }
+  #debug li {
+    width: 400px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+  #debug hr {
+    border-color: #01a8d1; }
+
 .right {
   float: right !important; }
 
