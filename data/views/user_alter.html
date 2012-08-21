@@ -6,6 +6,8 @@
 		<fieldset class="col">
 			<legend>Données</legend>
 			<form method="post">
+				<input type="hidden" name="uid"   value="{{him.uid}}">
+				<input type="hidden" name="token" value="{{token}}">
 				<label for="name" class="fixe">Nom :</label><br>
 				<input type="text" class="L" id="name" name="name" value="{{him.name}}">
 				<br>

@@ -10,9 +10,12 @@
 </head>
 <body>
 	<ul id="debug">
+		<hr>
+		<li>{{token}}</li>
 		<li>{{me}}</li>
+		<hr>
 		{% for x in me %}
-			{{x}}
+			<li>{{loop.key}} - {{x}}</li>
 		{% endfor %}
 		<hr>
 		<li>{{ses}}</li>

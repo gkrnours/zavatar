@@ -23,7 +23,7 @@ function manual(req, res){
 			)
 			return
 		}
-		if(rep.pass == req.body.pass){
+		if(rep.pass == util.md5(req.body.pass) ){
 			req.session.me = rep
 			res.redirect("/?m=connected")
 			return
@@ -33,12 +33,12 @@ function manual(req, res){
 }
 
 this.home = function(req, res){
-	tpl_val = util.mk_tpl_val(req)
+	var tpl_val = util.mk_tpl_val(req)
 	res.render("home", tpl_val)
 }
 
 this.signin = function(req, res){
-	tpl_val = util.mk_tpl_val(req)
+	var tpl_val = util.mk_tpl_val(req)
 	console.log(tpl_val.me)
 	res.render("signin", tpl_val)
 }
@@ -51,4 +51,5 @@ this.login = function(req, res){
 }
 this.logout = function(req, res){
 	req.session.me = null
+	res.redirect("/login")
 }

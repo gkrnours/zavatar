@@ -1,3 +1,5 @@
+var crypto = require("crypto")
+
 this.K = function(){}
 
 this.process = function(flux){
@@ -31,3 +33,6 @@ this.mk_tpl_val = function mk_tpl_val(req){
 	return tpl_val
 }
 
+this.md5 = function(str){
+	return crypto.createHash("md5").update(str).digest("hex")
+}
