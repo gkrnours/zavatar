@@ -1,0 +1,13 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+		<h2></h2>
+		<dl>{% for msg in messages %}
+			<dt>{{msg|foraAuthor}}</dt>
+			<dd>{{msg|foraMessage}}</dd>
+{% endfor %}		</dl>
+{% for msg in messages %}
+	{{msg|linebreaksbr|format}}
+{% endfor %}
+{% endblock main %}
+

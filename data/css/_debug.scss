@@ -6,7 +6,7 @@
 	background: $black; color:$lighter;
 	border: 1px solid $lighter; border-left: none; border-top: none;
 	overflow: hidden;
-	-webkit-transition: width 400ms ease;
+	-webkit-transition: width 700ms ease;
 	&:hover{
 		width: 400px;
 	}

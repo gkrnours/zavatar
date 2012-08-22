@@ -1,5 +1,5 @@
-var crypt= require("crypto")
 var uuid = require("node-uuid")
+var crypt= require("crypto")
 var util = require("./util.js")
 var bin  = require("./bin.js")
 var db   = require("./db.js")

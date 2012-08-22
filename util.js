@@ -1,4 +1,6 @@
 var crypto = require("crypto")
+var db   = require("./db.js")
+var err_txt = {} 
 
 this.K = function(){}
 
@@ -28,11 +30,21 @@ this.mk_tpl_val = function mk_tpl_val(req){
 	}
 	if(req && req.query){
 		if(req.query.e)
-			tpl_val.error = err_txt[req.query.e] || req.query.e
+			tpl_val.error = err_txt && err_txt[req.query.e] || req.query.e
 	}
 	return tpl_val
 }
 
 this.md5 = function(str){
 	return crypto.createHash("md5").update(str).digest("hex")
+}
+
+this.connected = function(req, res, next){
+	if(req && req.session && req.session.me)
+		db.r.hgetall("user:"+req.session.me.uid+":data", function(err, rep){
+			req.session.me = rep
+			next()
+		})
+	else 
+		return next("connexion required")
 }

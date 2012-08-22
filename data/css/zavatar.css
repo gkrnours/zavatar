@@ -13,7 +13,7 @@
   border-left: none;
   border-top: none;
   overflow: hidden;
-  -webkit-transition: width 400ms ease; }
+  -webkit-transition: width 700ms ease; }
   #debug:hover {
     width: 400px; }
   #debug li {
@@ -64,6 +64,8 @@ body {
       list-style: none;
       border: 2px solid #6f6025;
       border-bottom: none; }
+      body #menu li.right {
+        margin-right: 10px; }
       body #menu li a {
         display: block;
         padding: 0px 10px 0px 20px;

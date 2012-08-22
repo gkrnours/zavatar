@@ -1,5 +1,5 @@
-var wget = require("request")
 var x2js = require("xml2js")
+var wget = require("request")
 var db   = require("./db.js")
 var bin  = require("./bin.js")
 var util = require("./util.js")
@@ -14,7 +14,7 @@ function manual(req, res){
 			db.r.hmset(
 				[ukey,
 					"uid", req.body.uid,
-					"pass", req.body.pass, 
+					"pass", util.md5(req.body.pass),
 					"access", bin.set(0, [1,2,3,4])],
 				function(rep, err){
 					console.log(rep)

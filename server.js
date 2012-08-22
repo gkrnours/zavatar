@@ -12,7 +12,7 @@ var app = express()
 var views_dir = __dirname+"/data/views"
 
 app.configure(function(){
-	require("swig").init({cache: false, root: views_dir,
+	require("swig").init({cache: false, root: views_dir,autoescape: false,
 		filters: require("./filters.js")})
 	app.engine("html", template.swig)
 	app.set("view engine", "html")
@@ -24,9 +24,8 @@ app.configure(function(){
 	app.use("/js",  express.static(__dirname+"/data/js"))
 
 	app.use(express.favicon("data/img/favicon.ico"));
-	app.use(express.logger('dev'));
+	app.use(express.logger('tiny'));
 	app.use(express.bodyParser());
-	app.use(express.methodOverride());
 	app.use(express.cookieParser("greenish teddy"));
 	app.use(express.session({store: new rsStore(), secret:"greenish teddy",
 								cookie: {maxAge: 4*60*60*1000}}));

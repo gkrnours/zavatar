@@ -9,6 +9,9 @@
 			background-image: url("/img/bg.light.png");
 			list-style: none;
 			border: 2px solid $darker; border-bottom: none;
+			&.right{
+				margin-right: 10px;
+			}
 			a{
 				display: block;
 				padding: 0px 10px 0px 20px;

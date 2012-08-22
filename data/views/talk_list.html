@@ -1,0 +1,18 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+	<table>
+		<tr>
+			<th><!-- subject --></th>
+			<th><!-- author --></th>
+			<th><!-- responses --></th>
+		</tr>
+		{% for thread in list %}<tr>
+			<td>{{tread.subject}}</td>
+			<td>{{tread.author}}</td>
+			<td>{{tread.responses}}</td>
+		</tr>{% endfor %}
+	</table>
+	<a href="/talk/new" class="bann">Créer un nouveau sujet</a>
+{% endblock main %}
+

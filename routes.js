@@ -4,8 +4,9 @@
 
 var util = require("./util.js")
 var main = require("./main.js")
-var user = require("./user.js")
 var ask = require("./ask.js")
+var talk = require("./talk.js")
+var user = require("./user.js")
 
 this.setup = function setup(app){
 	app.get("/", main.home)
@@ -16,8 +17,13 @@ this.setup = function setup(app){
 	app.get("/ask", ask.form)
 	app.post("/ask", ask.process)
 
+	app.get("/talk", talk.list)
+	app.get("/talk/:section/:key/:page?", talk.read)
+	app.get("/talk/new", util.connected, talk.newt)
+	app.post("/talk/new", util.connected, talk.add)
+
 	app.get( "/user/:id", user.shape)
-	app.post("/user/:id", user.alter)
+	app.post("/user/:id", util.connected, user.alter)
 	app.get("/user/:id", user.view)
 	app.get("/user/?", user.search)
 	app.post("/user", user.searching)
