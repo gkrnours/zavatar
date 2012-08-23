@@ -22,6 +22,7 @@ app.configure(function(){
 	app.use("/css", express.static(__dirname+"/data/css"))
 	app.use("/img", express.static(__dirname+"/data/img"))
 	app.use("/js",  express.static(__dirname+"/data/js"))
+	app.use("/avatar", express.static("/mnt/avatar"))
 
 	app.use(express.favicon("data/img/favicon.ico"));
 	app.use(express.logger('tiny'));

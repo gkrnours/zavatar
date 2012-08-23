@@ -1,0 +1,31 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+{% include "lib_access" %}
+	<h2>Création d'un utilisateur</h2>
+	<form method="POST" enctype="multipart/form-data">
+		<label for="uid" class="fixe">Identifiant:</label><br>
+		<input type="text" id="uid" name="uid" class="L">
+		<br>
+		<label for="pass" class="fixe">Mot de passe:</label><br>
+		<input type="text" id="pass" name="pass" class="L">
+		<br>
+		<label for="name" class="fixe">Nom:</label><br>
+		<input type="text" id="name" name="name" class="L">
+		<br>
+		<input type="file" id="avatar" name="avatar" required>
+		<label for="avatar" class="L">Avatar </label><br>
+		{{ btn_access(8, 0, "connect","Peut se connecter") }}<br>
+		{{ btn_access(8, 1, "admin", "Administrateur") }}<br>
+		{{ btn_access(8, 2, "modo",  "Modérateur") }}<br>
+		{{ btn_access(8, 3, "write", "Peut écrire") }}<br>
+		{{ btn_access(8, 4, "image", "Peut poster une image") }}<br>
+		{{ btn_access(8, 5, "ask",   "Faire une demande") }}<br>
+		<hr>
+		<label for="code" class="fixe">Code de validation:</label>
+		<input type="text" id="code" name="code" class="L">
+		<input type="submit" class="L" value="Créer un nouvel utilisateur">
+		<input type="reset"  class="L" value="Ça ne va pas du tout !">
+	</form>
+{% endblock main %}
+

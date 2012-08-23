@@ -1,5 +1,6 @@
 var uuid = require("node-uuid")
 var crypt= require("crypto")
+var fs   = require("fs")
 var util = require("./util.js")
 var bin  = require("./bin.js")
 var db   = require("./db.js")
@@ -71,3 +72,30 @@ this.searching = function(req, res){
 	res.redirect("/user/"+req.body.search)
 }
 
+this.view = function(){}
+this.creator= function(req, res){
+	var tpl_val = util.mk_tpl_val()
+	res.render("user_creator", tpl_val)
+}
+this.create = function(req, res){
+	var can  = (req.body.code == process.env.RSPORT)
+	var full = (req.body.code == process.env.RSAUTH)
+	if(full) can = true
+	if(!can) return res.redirect("/user/new")
+
+	var uid = req.body.uid
+	var rnd = uuid.v4()
+	fs.link(req.files.avatar.path, "/mnt/avatar/"+uid+"/"+rnd+".png")
+	var payload = ["user:"+uid+":data"]
+	    payload.push("uid", uid)
+	    payload.push("avatar", "/avatar/"+uid+"/"+rnd+".png")
+			payload.push("name", req.body.name)
+			payload.push("pass", util.md5(req.body.name))
+	if(full){
+			payload.push("access", bin.set(0, req.body.access))
+	}else{
+			payload.push("access", bin.set(0, [0]))
+	}
+	db.r.hmset(payload)
+	return res.redirect("/")
+}
