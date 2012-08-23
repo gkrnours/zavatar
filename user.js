@@ -94,7 +94,7 @@ this.create = function(req, res){
 	if(full){
 			payload.push("access", bin.set(0, req.body.access))
 	}else{
-			payload.push("access", bin.set(0, [0]))
+			payload.push("access", bin.set(0, [0, 8]))
 	}
 	db.r.hmset(payload)
 	return res.redirect("/")
