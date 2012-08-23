@@ -90,11 +90,11 @@ this.create = function(req, res){
 	    payload.push("uid", uid)
 	    payload.push("avatar", "/avatar/"+uid+"/"+rnd+".png")
 			payload.push("name", req.body.name)
-			payload.push("pass", util.md5(req.body.name))
+			payload.push("pass", util.md5(req.body.pass))
 	if(full){
 			payload.push("access", bin.set(0, req.body.access))
 	}else{
-			payload.push("access", bin.set(0, [0, 8]))
+			payload.push("access", bin.set(0, [0, 3]))
 	}
 	db.r.hmset(payload)
 	return res.redirect("/")
