@@ -153,24 +153,65 @@ body {
     body form input[type="radio"] + label, body form input[type="checkbox"] + label {
       min-width: 0px;
       padding-left: 14px;
+      margin-bottom: 4px;
       background: url("/img/btn.checkable.gif") left top;
+      box-shadow: 2px 2px 1px #070401;
       -webkit-transition: background-position ease 400ms;
       -moz-transition: background-position ease 400ms;
       -ie-transition: background-position ease 400ms;
       -o-transition: background-position ease 400ms;
       transition: background-position ease 400ms; }
+    body form input[type="radio"] + label:hover, body form input[type="radio"] + label:focus, body form input[type="checkbox"] + label:hover, body form input[type="checkbox"] + label:focus {
+      position: relative;
+      top: 1px;
+      left: 1px;
+      box-shadow: 1px 1px 1px #070401;
+      outline: none; }
+    body form input[type="radio"] + label:active, body form input[type="checkbox"] + label:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      box-shadow: inset 2px 2px 1px #070401; }
     body form input[type="radio"]:checked + label, body form input[type="checkbox"]:checked + label {
       background-position: bottom left; }
     body form input[type="radio"] + label.L, body form input[type="checkbox"] + label.L {
       display: inline-block;
       width: 230px;
-      padding-left: 15px;
-      margin-bottom: 2px; }
+      padding-left: 15px; }
     body form input[type="radio"] + label.todo, body form input[type="checkbox"] + label.todo {
       padding-left: 0px;
       background: none; }
     body form input[type="radio"]:checked + label.todo, body form input[type="checkbox"]:checked + label.todo {
       text-decoration: line-through; }
+  body form input[type="file"] {
+    display: none; }
+    body form input[type="file"] + label {
+      min-width: 0px;
+      padding-left: 22px;
+      margin-bottom: 4px;
+      box-shadow: 2px 2px 1px #070401;
+      background: url("/img/btn.file.gif") left top;
+      -webkit-transition: background-position ease 400ms;
+      -moz-transition: background-position ease 400ms;
+      -ie-transition: background-position ease 400ms;
+      -o-transition: background-position ease 400ms;
+      transition: background-position ease 400ms; }
+    body form input[type="file"] + label:hover, body form input[type="file"] + label:focus {
+      position: relative;
+      top: 1px;
+      left: 1px;
+      box-shadow: 1px 1px 1px #070401;
+      outline: none; }
+    body form input[type="file"] + label:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      box-shadow: inset 2px 2px 1px #070401; }
+    body form input[type="file"]:invalid + label {
+      background-position: left bottom; }
+    body form input[type="file"] + label.L {
+      display: inline-block;
+      width: 223px; }
   body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
     padding: 0px 3px;
     margin: 0px 10px 0px 0px;

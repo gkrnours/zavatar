@@ -71,13 +71,25 @@ form{
 		display: none;
 		&+label{
 			min-width: 0px;
-			padding-left: 14px;
+			padding-left: 14px;	margin-bottom: 4px;
 			background: url("/img/btn.checkable.gif") left top;
+			box-shadow: 2px 2px 1px $black;
 			-webkit-transition: background-position ease 400ms;
 			-moz-transition: background-position ease 400ms;
 			-ie-transition: background-position ease 400ms;
 			-o-transition: background-position ease 400ms;
 			transition: background-position ease 400ms;
+		}
+		&+label:hover, &+label:focus{
+			position: relative;
+				top: 1px; left: 1px;
+			box-shadow: 1px 1px 1px $black;
+			outline: none;
+		}
+		&+label:active{
+			position: relative;
+				top: 2px; left: 2px;
+			box-shadow: inset 2px 2px 1px $black;
 		}
 		&:checked+label{
 			background-position: bottom left;
@@ -85,7 +97,7 @@ form{
 		&+label.L{
 			display: inline-block;
 			width: 230px;
-			padding-left: 15px;	margin-bottom: 2px;
+			padding-left: 15px;	
 		}
 		&+label.todo{
 			padding-left: 0px;
@@ -93,6 +105,38 @@ form{
 		}
 		&:checked+label.todo{
 			text-decoration: line-through;
+		}
+	}
+	input[type="file"]{
+		display: none;
+		&+label{
+			min-width: 0px;
+			padding-left: 22px; margin-bottom: 4px;
+			box-shadow: 2px 2px 1px $black;
+			background: url("/img/btn.file.gif") left top;
+			-webkit-transition: background-position ease 400ms;
+			-moz-transition: background-position ease 400ms;
+			-ie-transition: background-position ease 400ms;
+			-o-transition: background-position ease 400ms;
+			transition: background-position ease 400ms;
+		}
+		&+label:hover, &+label:focus{
+			position: relative;
+				top: 1px; left: 1px;
+			box-shadow: 1px 1px 1px $black;
+			outline: none;
+		}
+		&+label:active{
+			position: relative;
+				top: 2px; left: 2px;
+			box-shadow: inset 2px 2px 1px $black;
+		}
+		&:invalid+label{
+			background-position: left bottom ;
+		}
+		&+label.L{
+			display: inline-block;
+			width: 223px;
 		}
 	}
 	input[type="submit"], input[type="button"], input[type="reset"]{
