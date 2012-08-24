@@ -1,0 +1,17 @@
+#forum{
+	margin: 10px 9px;
+	border-left:  1px solid $black;
+	border-right: 1px solid $black;
+	dt{
+		background: url("/img/bg.light.png");
+		border-bottom: 1px solid $black;
+	}
+	dt:nth-child(4n+1){
+		background: url("/img/bg.medium.png");
+	}
+	dd{
+		margin-left: 0px; padding: 4px 8px;
+		background: url("/img/bg.menu.png");
+		color: $lighter;
+	}
+}
