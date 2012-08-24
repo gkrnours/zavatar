@@ -10,19 +10,6 @@ function auto(){
 function manual(req, res){
 	ukey = "user:"+req.body.uid+":data"
 	db.r.hgetall([ukey], function(err, rep){
-		if(rep == null && typeof(process.env.DBHOST) == "undefined"){
-			db.r.hmset(
-				[ukey,
-					"uid", req.body.uid,
-					"pass", util.md5(req.body.pass),
-					"access", bin.set(0, [1,2,3,4])],
-				function(rep, err){
-					console.log(rep)
-					res.redirect("/?m=register")
-				}
-			)
-			return
-		}
 		if(rep.pass == util.md5(req.body.pass) ){
 			req.session.me = rep
 			res.redirect("/?m=connected")
