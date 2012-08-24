@@ -6,11 +6,11 @@
 		<input type="hidden" name="post" value="{{me.post|default(0)}}">
 
 		<label for="subject" class="fixe">Sujet</label>
-		<input type="text" id="subject" name="subject" class="L">
+		<input type="text" id="subject" name="subject" class="L" maxlength="64">
 		<br>
 		<label for="opening" class="fixe">Message</label>
 		<br>
-		<textarea id="opening" name="opening"></textarea>
+		<textarea id="opening" name="opening" maxlength="1024"></textarea>
 		<hr>
 		<input type="submit" class="L" value="Je me suis relu.">
 		<input type="reset" class="L" value="Non, ça ne va pas du tout.">
