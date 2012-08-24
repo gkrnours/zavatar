@@ -15,7 +15,10 @@ function manual(req, res){
 			res.redirect("/?m=connected")
 			return
 		}
-		res.redirect("/login?e=nologin")
+		if(rep)
+			res.redirect("/login?e=nologin")
+		else
+			res.redirect("/login?e=noone")
 	})
 }
 
