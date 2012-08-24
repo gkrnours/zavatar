@@ -85,7 +85,17 @@ this.create = function(req, res){
 
 	var uid = req.body.uid
 	var rnd = uuid.v4()
-	fs.link(req.files.avatar.path, "/mnt/avatar/"+uid+"/"+rnd+".png")
+	console.log(req.files.avatar)
+	
+	try{
+		fs.readdirSync("/mnt/avatar/"+uid)
+	}catch(e){
+		fs.mkdirSync("/mnt/avatar/"+uid)
+	}
+	fs.link(req.files.avatar.path, "/mnt/avatar/"+uid+"/"+rnd+".png",
+			function(err){
+				console.log(err)
+			})
 	var payload = ["user:"+uid+":data"]
 	    payload.push("uid", uid)
 	    payload.push("avatar", "/avatar/"+uid+"/"+rnd+".png")

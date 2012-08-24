@@ -92,6 +92,18 @@ body {
       text-decoration: none;
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
+  body #fora {
+    margin: 10px 0px;
+    border-collapse: collapse; }
+    body #fora td {
+      border: 1px solid #6f6025; }
+    body #fora td:nth-child(1) {
+      width: 450px; }
+    body #fora td:nth-child(2) {
+      width: 200px; }
+    body #fora td:nth-child(3) {
+      width: 50px;
+      text-align: right; }
   body #forum {
     margin: 10px 9px;
     border-left: 1px solid #070401;

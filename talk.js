@@ -6,7 +6,17 @@ var db   = require("./db.js")
 
 this.list = function(req, res){
 	var tpl_val = util.mk_tpl_val(req)
-	res.render("talk_list", tpl_val)
+	db.r.zrange(["forum:modo:list", 0, 20], function(err, threads){
+		var request = db.r.multi()
+		for(i in threads){
+			request.hgetall(["thread:"+threads[i]+":data"])
+		}
+		request.exec(function(err, rep){
+			console.log(rep)
+			tpl_val.list = rep
+			res.render("talk_list", tpl_val)
+		})
+	})
 }
 this.read = function(req, res, next){
 	var tpl_val = util.mk_tpl_val(req)

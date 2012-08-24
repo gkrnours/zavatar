@@ -16,8 +16,10 @@ this.fora.create = function(who, where, what){
 	request.sadd(["thread:"+key+":people", who.uid])
 	request.hmset([
 			"thread:"+key+":data",
+			"link", "/talk/"+where+"/"+key,
 			"start", when.getTime(),
 			"subject", what.subject,
+			"author", who.uid,
 			"length", 1])
 	request.hincrby(["user:"+who.uid+":data", "thread", 1])
 	request.hincrby(["user:"+who.uid+":data", "post",   1])
