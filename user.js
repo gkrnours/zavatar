@@ -74,7 +74,7 @@ this.searching = function(req, res){
 
 this.view = function(){}
 this.creator= function(req, res){
-	var tpl_val = util.mk_tpl_val()
+	var tpl_val = util.mk_tpl_val(req)
 	res.render("user_creator", tpl_val)
 }
 this.create = function(req, res){

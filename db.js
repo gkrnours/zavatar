@@ -9,10 +9,10 @@ this.fora.create = function(who, where, what){
 	who.post   = who.post   || 0
 	when = new Date()
 	key = who.uid+"_"+who.thread
-	var ok = false;
+
 	var request = r.multi()
 	request.zadd(["forum:"+where+":list", when.getTime(), key])
-	request.rpush(["thread:"+key+":messages", who.uid+"§"+what.opening])
+	request.rpush(["thread:"+key+":messages", JSON.stringify(what)])
 	request.sadd(["thread:"+key+":people", who.uid])
 	request.hmset([
 			"thread:"+key+":data",
@@ -21,5 +21,5 @@ this.fora.create = function(who, where, what){
 			"length", 1])
 	request.hincrby(["user:"+who.uid+":data", "thread", 1])
 	request.hincrby(["user:"+who.uid+":data", "post",   1])
-	request.exec(function(err){ console.log(err) })
+	request.exec(function(err){ if(err) console.log("oops"); console.log(err) })
 }

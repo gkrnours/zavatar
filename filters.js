@@ -10,6 +10,7 @@ this.foraAuthor = function(txt){
 this.foraMessage = function(txt){
 	r = txt.split("§")
 	r.shift()
+	r.shift()
 	return r.join("§")
 }
 

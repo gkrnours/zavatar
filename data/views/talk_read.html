@@ -1,10 +1,10 @@
 {% extends "tpl.html" %}
 
 {% block main %}
-		<h2></h2>
-		<dl>{% for msg in messages %}
-			<dt>{{msg|foraAuthor}}</dt>
-			<dd>{{msg|foraMessage}}</dd>
+		<h2>{{data.subject}}</h2>
+		<dl id="forum">{% for msg in messages %}
+			<dt>{{ppl[msg.author].name}}</dt>
+			<dd>{{msg.message}}</dd>
 {% endfor %}		</dl>
 {% endblock main %}
 

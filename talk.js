@@ -14,11 +14,25 @@ this.read = function(req, res, next){
 	var request = db.r.multi()
 	    request.hgetall(["thread:"+req.params.key+":data"])
 			request.lrange(["thread:"+req.params.key+":messages",page*10,page*10+9])
+			request.smembers(["thread:"+req.params.key+":people"])
 			request.exec(function(err, rep){
 				if(err) return next(err)
 				tpl_val.data = rep[0]
-				tpl_val.messages = rep[1]
-				return res.render("talk_read", tpl_val)
+				tpl_val.messages = []
+				for(i=0; i<rep[1].length; ++i)
+					tpl_val.messages.push(JSON.parse(rep[1]))
+				var people = db.r.multi()
+				for(ppl in rep[2]){
+					console.log(rep[2][ppl])
+					people.hgetall(["user:"+rep[2][ppl]+":data"])
+				}
+				people.exec(function(err, ppl){
+					tpl_val.ppl = {}
+					for(i in ppl){
+						tpl_val.ppl[ppl[i]["uid"]] = ppl[i]
+					}
+					return res.render("talk_read", tpl_val)
+				})
 			})
 }
 
@@ -40,12 +54,18 @@ this.add = function(req, res, next){
 		if(me.uid != req.body.uid) return res.redirect("/logout")
 		// process thread
 		if(1024 < fora.count(req.body.opening)) 
-			return res.redirect("/talk/new?e=toolong")
-		if(64 < req.body.subject) 
-			return res.redirect("/talk/new?e=toolong") 
+			return res.redirect("/talk/new?e=msgtoolong")
+		if(64   < req.body.subject.length) {
+			return res.redirect("/talk/new?e=subtoolong") 
+		}
 		req.body.opening = fora.format(req.body.opening)
 		// save
-		db.fora.create(req.session.me, "modo", req.body)
+		var what = {}
+				what.author = req.body.uid
+				what.message = req.body.opening
+				what.subject = req.body.subject
+				what.kind = "message"
+		db.fora.create(req.session.me, "modo", what)
 
 		return res.redirect("/talk/modo/"+req.body.uid+"_"+req.body.post)
 	})

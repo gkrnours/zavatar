@@ -8,8 +8,8 @@
   padding: 0px;
   padding-bottom: 20px;
   background: #070401;
-  color: #01a8d1;
-  border: 1px solid #01a8d1;
+  color: #d9d3b4;
+  border: 1px solid #d9d3b4;
   border-left: none;
   border-top: none;
   overflow: hidden;
@@ -22,7 +22,7 @@
     padding: 0px;
     list-style: none; }
   #debug hr {
-    border-color: #01a8d1; }
+    border-color: #d9d3b4; }
 
 .right {
   float: right !important; }
@@ -41,7 +41,7 @@ body {
     display: block;
     height: 213px;
     width: 740px;
-    background-color: #01a8d1; }
+    background-color: #d9d3b4; }
   body #head {
     margin-top: 20px;
     background-image: url("/img/header.png"); }
@@ -92,6 +92,20 @@ body {
       text-decoration: none;
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
+  body #forum {
+    margin: 10px 9px;
+    border-left: 1px solid #070401;
+    border-right: 1px solid #070401; }
+    body #forum dt {
+      background: url("/img/bg.light.png");
+      border-bottom: 1px solid #070401; }
+    body #forum dt:nth-child(4n+1) {
+      background: url("/img/bg.medium.png"); }
+    body #forum dd {
+      margin-left: 0px;
+      padding: 4px 8px;
+      background: url("/img/bg.menu.png");
+      color: #d9d3b4; }
   body fieldset {
     margin: 0px;
     padding: 10px 10px 0px;

@@ -26,10 +26,10 @@ this.setup = function setup(app){
 	app.post("/user/?", user.searching)
 	app.get( "/user/new/?", user.creator)
 	app.post("/user/new/?", user.create)
-	app.get( "/user/:id", user.shape)
-	app.get( "/user/:id", user.view)
 	app.get( "/user/alter/:id", user.shape)
 	app.post("/user/alter/:id", util.connected, user.alter)
+	app.get( "/user/:id", user.shape)
+	app.get( "/user/:id", user.view)
 }
 
 
