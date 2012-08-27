@@ -93,10 +93,10 @@ body {
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
   body #fora {
-    height: 200px;
+    height: 125px;
     margin: 10px 0px;
     padding: 0px 0px 0px 100px;
-    background: url("/img/fora_icon.png") -5px 5px no-repeat, url("/img/fora_bg.png") 0px 2px repeat-y;
+    background: url("/img/fora_icon.png") -5px 5px no-repeat;
     border-collapse: separate;
     table-layout: fixed; }
     body #fora tr {
