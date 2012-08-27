@@ -1,17 +1,18 @@
 {% extends "tpl.html" %}
 
 {% block main %}
-	<table id="fora">
+	<table id="fora">{#
 		<tr>
 			<th><!-- subject --></th>
 			<th><!-- author --></th>
 			<th><!-- responses --></th>
-		</tr>
+		</tr> #}
 		{% for thread in list %}<tr>
 			<td><a href="{{thread.link}}">{{thread.subject}}</a></td>
 			<td>{{thread.author}}</td>
 			<td>{{thread.length}}</td>
 		</tr>{% endfor %}
+		<tr class="filler"></tr>
 	</table>
 	<a href="/talk/new" class="bann">Créer un nouveau sujet</a>
 {% endblock main %}
