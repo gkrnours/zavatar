@@ -3,7 +3,12 @@
 {% block main %}
 		<h2>{{data.subject}}</h2>
 		<dl id="forum">{% for msg in messages %}
-			<dt>{{ppl[msg.author].name}}</dt>
+			<dt>
+				<div class="blind">
+					<img class="avatar" src="{{ppl[msg.author].avatar}}"> 
+				</div>
+				<span class="author">{{ppl[msg.author].name}}</span>
+			</dt>
 			<dd>{{msg.message}}</dd>
 {% endfor %}		</dl>
 {% endblock main %}

@@ -38,8 +38,27 @@
 	border-left:  1px solid $black;
 	border-right: 1px solid $black;
 	dt{
+		position: relative;
+		height: 40px;
 		background: url("/img/bg.light.png");
 		border-bottom: 1px solid $black;
+		.blind{
+			position: absolute;
+				top: 0px; left: 0px;
+			height: 40px;
+			overflow: hidden;
+			-webkit-transition: height 400ms ease;
+			&:hover{
+				height: 80px;
+			}
+			.avatar{
+				width: 80px;
+			}
+		}
+		.author{
+			position: absolute;
+				top: 0px; left: 84px;
+		}
 	}
 	dt:nth-child(4n+1){
 		background: url("/img/bg.medium.png");
