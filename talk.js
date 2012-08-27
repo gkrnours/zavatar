@@ -12,7 +12,6 @@ this.list = function(req, res){
 			request.hgetall(["thread:"+threads[i]+":data"])
 		}
 		request.exec(function(err, rep){
-			console.log(rep)
 			tpl_val.list = rep
 			res.render("talk_list", tpl_val)
 		})

@@ -29,7 +29,6 @@ this.home = function(req, res){
 
 this.signin = function(req, res){
 	var tpl_val = util.mk_tpl_val(req)
-	console.log(tpl_val.me)
 	res.render("signin", tpl_val)
 }
 
