@@ -100,15 +100,24 @@ body {
     border-collapse: separate;
     table-layout: fixed; }
     body #fora tr {
-      height: 22px; }
-    body #fora tr.filler {
-      height: auto; }
+      height: 22px;
+      background-image: url("/img/bg.light.png"); }
+      body #fora tr.filler {
+        height: auto; }
     body #fora td {
-      border: 1px solid #6f6025; }
+      border: 1px solid #6f6025;
+      -webkit-transition: all 400ms ease; }
     body #fora td:nth-child(1) {
-      width: 375px; }
+      width: 370px; }
+      body #fora td:nth-child(1) a {
+        display: block;
+        padding-left: 10px;
+        color: #070401;
+        text-decoration: none; }
+        body #fora td:nth-child(1) a:hover {
+          background: rgba(111, 96, 37, 0.5); }
     body #fora td:nth-child(2) {
-      width: 175px; }
+      width: 170px; }
     body #fora td:nth-child(3) {
       width: 50px;
       text-align: right; }
