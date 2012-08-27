@@ -93,14 +93,22 @@ body {
       background-image: url("/img/btn.png");
       border: 2px solid #6f6025; }
   body #fora {
+    height: 200px;
     margin: 10px 0px;
-    border-collapse: collapse; }
+    padding: 0px 0px 0px 100px;
+    background: url("/img/fora_generic.png") 0px 2px no-repeat;
+    border-collapse: separate;
+    table-layout: fixed; }
+    body #fora tr {
+      height: 22px; }
+    body #fora tr.filler {
+      height: auto; }
     body #fora td {
       border: 1px solid #6f6025; }
     body #fora td:nth-child(1) {
-      width: 450px; }
+      width: 375px; }
     body #fora td:nth-child(2) {
-      width: 200px; }
+      width: 175px; }
     body #fora td:nth-child(3) {
       width: 50px;
       text-align: right; }
