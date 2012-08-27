@@ -1,310 +1,80 @@
-@import url("/css/libertine/font.css");
-#debug {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100px;
-  margin: 0px;
-  padding: 0px;
-  padding-bottom: 20px;
-  background: #070401;
-  color: #d9d3b4;
-  border: 1px solid #d9d3b4;
-  border-left: none;
-  border-top: none;
-  overflow: hidden;
-  -webkit-transition: width 700ms ease; }
-  #debug:hover {
-    width: 400px; }
-  #debug li {
-    width: 400px;
-    margin: 0px;
-    padding: 0px;
-    list-style: none; }
-  #debug hr {
-    border-color: #d9d3b4; }
+/*
+Syntax error: File to import not found or unreadable: fora.
+              Load paths:
+                /home/gkr/Dropbox/Public/SITE/zavatar
+                /home/gkr/Dropbox/Public/SITE/zavatar/data/css
+        on line 36 of data/css/zavatar.scss
 
-.right {
-  float: right !important; }
+31: 		margin-bottom: 20px;
+32: 		background-image: url("/img/footer.png");
+33: 	}
+34: 	@import "menu";
+35: 	@import "main";
+36: 	@import "fora";
+37: 	@import "form";
+38: 	#disclaimer{
+39: 		margin: 0px;
+40: 		background-image: url("/img/bg.menu.png");
+41: 		p{
 
-html {
-  background-color: #070401;
-  overflow-y: scroll;
-  font-family: "Linux Libertine", serif;
-  color: #070401; }
-
-body {
-  margin: auto;
-  width: 740px;
-  background-image: url("/img/bg.main.png"); }
-  body #head, body #foot {
-    display: block;
-    height: 213px;
-    width: 740px;
-    background-color: #d9d3b4; }
-  body #head {
-    margin-top: 20px;
-    background-image: url("/img/header.png"); }
-  body #foot {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-image: url("/img/footer.png"); }
-  body #menu {
-    margin: 0px;
-    padding: 0px 10px;
-    height: 32px;
-    background-image: url("/img/bg.menu.png"); }
-    body #menu li {
-      float: left;
-      position: relative;
-      margin: 10px 0px 0px 10px;
-      padding: 0px;
-      height: 20px;
-      background-image: url("/img/bg.light.png");
-      list-style: none;
-      border: 2px solid #6f6025;
-      border-bottom: none; }
-      body #menu li.right {
-        margin-right: 10px; }
-      body #menu li a {
-        display: block;
-        padding: 0px 10px 0px 20px;
-        height: 20px;
-        line-height: 20px;
-        color: #070401;
-        text-decoration: none;
-        transition: background linear 200ms;
-        -webkit-transition: background-color linear 200ms;
-        -moz-transition: background linear 200ms;
-        -ie-transition: background linear 200ms;
-        -o-transition: background linear 200ms; }
-        body #menu li a img {
-          position: absolute;
-          bottom: 2px;
-          left: 2px; }
-        body #menu li a:hover {
-          background-color: rgba(0, 0, 0, 0.22); }
-  body #main {
-    padding: 0px 10px; }
-    body #main a.btn {
-      padding: 0px 3px;
-      color: black;
-      text-decoration: none;
-      background-image: url("/img/btn.png");
-      border: 2px solid #6f6025; }
-  body #fora {
-    height: 200px;
-    margin: 10px 0px;
-    padding: 0px 0px 0px 100px;
-    background: url("/img/fora_generic.png") 0px 2px no-repeat;
-    border-collapse: separate;
-    table-layout: fixed; }
-    body #fora tr {
-      height: 22px;
-      background-image: url("/img/bg.light.png"); }
-      body #fora tr.filler {
-        height: auto; }
-    body #fora td {
-      border: 1px solid #6f6025;
-      -webkit-transition: all 400ms ease; }
-    body #fora td:nth-child(1) {
-      width: 370px; }
-      body #fora td:nth-child(1) a {
-        display: block;
-        padding-left: 10px;
-        color: #070401;
-        text-decoration: none; }
-        body #fora td:nth-child(1) a:hover {
-          background: rgba(111, 96, 37, 0.5); }
-    body #fora td:nth-child(2) {
-      width: 170px; }
-    body #fora td:nth-child(3) {
-      width: 50px;
-      text-align: right; }
-  body #forum {
-    margin: 10px 9px;
-    border-left: 1px solid #070401;
-    border-right: 1px solid #070401; }
-    body #forum dt {
-      background: url("/img/bg.light.png");
-      border-bottom: 1px solid #070401; }
-    body #forum dt:nth-child(4n+1) {
-      background: url("/img/bg.medium.png"); }
-    body #forum dd {
-      margin-left: 0px;
-      padding: 4px 8px;
-      background: url("/img/bg.menu.png");
-      color: #d9d3b4; }
-  body fieldset {
-    margin: 0px;
-    padding: 10px 10px 0px;
-    border: 2px solid #070401; }
-    body fieldset.col {
-      float: left;
-      width: 320px;
-      margin-left: 0px; }
-      body fieldset.col + fieldset {
-        margin-left: 20px; }
-    body fieldset + hr {
-      clear: left;
-      border: none; }
-    body fieldset legend {
-      padding: 0px 5px;
-      font-weight: bold;
-      background: rgba(255, 255, 255, 0.35);
-      border-radius: 8px 0px 0px 0px; }
-  body form hr {
-    border-top: 1px solid #8a7b3b;
-    border-right: 3px solid #8a7b3b;
-    border-bottom: 2px solid #bcb27d;
-    border-left: 3px solid #bcb27d; }
-  body form h3 {
-    margin: 20px 0px 5px 0px; }
-  body form label {
-    padding: 0px 3px;
-    margin: 0px 10px 0px 0px;
-    background-image: url("/img/bg.light.png");
-    border: 2px solid #6f6025;
-    cursor: pointer; }
-    body form label.fixe {
-      display: inline-block;
-      min-width: 100px; }
-    body form label.M {
-      display: inline-block;
-      width: 170px; }
-    body form label.todo {
-      background: none;
-      border: none; }
-  body form input[type="text"], body form input[type="password"] {
-    padding: 0px 1px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-    background-image: url("/img/bg.medium.png");
-    border: 2px inset #6f6025; }
-    body form input[type="text"].S, body form input[type="password"].S {
-      display: inline-block;
-      width: 115px; }
-    body form input[type="text"].L, body form input[type="password"].L {
-      display: inline-block;
-      width: 315px; }
-    body form input[type="text"].dis, body form input[type="password"].dis {
-      color: #070401; }
-    body form input[type="text"]:focus, body form input[type="password"]:focus {
-      outline-color: #6f6025; }
-  body form input[type="radio"], body form input[type="checkbox"] {
-    display: none; }
-    body form input[type="radio"] + label, body form input[type="checkbox"] + label {
-      min-width: 0px;
-      padding-left: 14px;
-      margin-bottom: 4px;
-      background: url("/img/btn.checkable.gif") left top;
-      box-shadow: 2px 2px 1px #070401;
-      -webkit-transition: background-position ease 400ms;
-      -moz-transition: background-position ease 400ms;
-      -ie-transition: background-position ease 400ms;
-      -o-transition: background-position ease 400ms;
-      transition: background-position ease 400ms; }
-    body form input[type="radio"] + label:hover, body form input[type="radio"] + label:focus, body form input[type="checkbox"] + label:hover, body form input[type="checkbox"] + label:focus {
-      position: relative;
-      top: 1px;
-      left: 1px;
-      box-shadow: 1px 1px 1px #070401;
-      outline: none; }
-    body form input[type="radio"] + label:active, body form input[type="checkbox"] + label:active {
-      position: relative;
-      top: 2px;
-      left: 2px;
-      box-shadow: inset 2px 2px 1px #070401; }
-    body form input[type="radio"]:checked + label, body form input[type="checkbox"]:checked + label {
-      background-position: bottom left; }
-    body form input[type="radio"] + label.L, body form input[type="checkbox"] + label.L {
-      display: inline-block;
-      width: 230px;
-      padding-left: 15px; }
-    body form input[type="radio"] + label.todo, body form input[type="checkbox"] + label.todo {
-      padding-left: 0px;
-      background: none; }
-    body form input[type="radio"]:checked + label.todo, body form input[type="checkbox"]:checked + label.todo {
-      text-decoration: line-through; }
-  body form input[type="file"] {
-    display: none; }
-    body form input[type="file"] + label {
-      min-width: 0px;
-      padding-left: 22px;
-      margin-bottom: 4px;
-      box-shadow: 2px 2px 1px #070401;
-      background: url("/img/btn.file.gif") left top;
-      -webkit-transition: background-position ease 400ms;
-      -moz-transition: background-position ease 400ms;
-      -ie-transition: background-position ease 400ms;
-      -o-transition: background-position ease 400ms;
-      transition: background-position ease 400ms; }
-    body form input[type="file"] + label:hover, body form input[type="file"] + label:focus {
-      position: relative;
-      top: 1px;
-      left: 1px;
-      box-shadow: 1px 1px 1px #070401;
-      outline: none; }
-    body form input[type="file"] + label:active {
-      position: relative;
-      top: 2px;
-      left: 2px;
-      box-shadow: inset 2px 2px 1px #070401; }
-    body form input[type="file"]:invalid + label {
-      background-position: left bottom; }
-    body form input[type="file"] + label.L {
-      display: inline-block;
-      width: 223px; }
-  body form input[type="submit"], body form input[type="button"], body form input[type="reset"] {
-    padding: 0px 3px;
-    margin: 0px 10px 0px 0px;
-    background-image: url("/img/bg.light.png");
-    box-shadow: 2px 2px 1px #070401;
-    border: 2px solid #6f6025;
-    font-family: "Linux Libertine";
-    cursor: pointer; }
-    body form input[type="submit"].L, body form input[type="button"].L, body form input[type="reset"].L {
-      display: inline-block;
-      padding: 5px 10px;
-      width: 42%; }
-    body form input[type="submit"].XL, body form input[type="button"].XL, body form input[type="reset"].XL {
-      display: inline-block;
-      padding: 5px 10px;
-      width: 70%; }
-    body form input[type="submit"]:hover, body form input[type="submit"]:focus, body form input[type="button"]:hover, body form input[type="button"]:focus, body form input[type="reset"]:hover, body form input[type="reset"]:focus {
-      position: relative;
-      top: 1px;
-      left: 1px;
-      box-shadow: 1px 1px 1px #070401;
-      outline: none; }
-    body form input[type="submit"]:active, body form input[type="button"]:active, body form input[type="reset"]:active {
-      position: relative;
-      top: 2px;
-      left: 2px;
-      box-shadow: inset 2px 2px 1px #070401; }
-  body form textarea {
-    margin: 3px 0px 0px 0px;
-    width: 500px;
-    height: 150px;
-    background-image: url("/img/bg.menu.png");
-    color: #bcb27d;
-    border: 2px solid #6f6025; }
-    body form textarea:focus {
-      outline: none; }
-  body form ul.aside {
-    float: right;
-    margin: 0px;
-    padding: 0px;
-    width: 200px; }
-    body form ul.aside li {
-      margin: 0px 0px 5px 0px;
-      padding: 0px;
-      list-style: none; }
-      body form ul.aside li.head {
-        font-size: 20px;
-        font-weight: bold; }
-  body #disclaimer {
-    margin: 0px;
-    background-image: url("/img/bg.menu.png"); }
-    body #disclaimer p {
-      color: white; }
+Backtrace:
+data/css/zavatar.scss:36
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/import_node.rb:64:in `rescue in import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/import_node.rb:42:in `import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/import_node.rb:25:in `imported_file'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:87:in `rescue in invalid_import_parent?'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:77:in `invalid_import_parent?'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:130:in `try_send'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:8:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:26:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:39:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:14:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:26:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:33:in `visit_root'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:14:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:24:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/root_node.rb:19:in `render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/engine.rb:299:in `_render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/engine.rb:246:in `render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:284:in `block (4 levels) in watch'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/path.rb:73:in `call'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/path.rb:73:in `run_callback'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/path.rb:55:in `callback_action'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/path.rb:39:in `delete'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/state/directory.rb:32:in `block in deleted'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/state/directory.rb:31:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/state/directory.rb:31:in `deleted'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/state/directory.rb:16:in `refresh'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/backends/polling.rb:17:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/backends/polling.rb:17:in `block in run'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/backends/polling.rb:15:in `loop'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/backends/polling.rb:15:in `run'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm/monitor.rb:26:in `run'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/vendor/fssm/lib/fssm.rb:70:in `monitor'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:265:in `watch'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/plugin.rb:107:in `method_missing'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/exec.rb:431:in `watch_or_update'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/exec.rb:302:in `process_result'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/exec.rb:41:in `parse'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/exec.rb:21:in `parse!'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.1.15/bin/sass:8:in `<top (required)>'
+/usr/bin/sass:19:in `load'
+/usr/bin/sass:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: fora.\A               Load paths:\A                 /home/gkr/Dropbox/Public/SITE/zavatar\A                 /home/gkr/Dropbox/Public/SITE/zavatar/data/css\A         on line 36 of data/css/zavatar.scss\A \A 31: 		margin-bottom: 20px;\A 32: 		background-image: url(\"/img/footer.png\");\A 33: 	}\A 34: 	@import \"menu\";\A 35: 	@import \"main\";\A 36: 	@import \"fora\";\A 37: 	@import \"form\";\A 38: 	#disclaimer{\A 39: 		margin: 0px;\A 40: 		background-image: url(\"/img/bg.menu.png\");\A 41: 		p{"; }
