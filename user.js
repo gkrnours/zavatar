@@ -85,7 +85,6 @@ this.create = function(req, res){
 
 	var uid = req.body.uid
 	var rnd = uuid.v4()
-	console.log(req.files.avatar)
 	
 	try{
 		fs.readdirSync("/mnt/avatar")
@@ -99,7 +98,7 @@ this.create = function(req, res){
 	}
 	fs.link(req.files.avatar.path, "/mnt/avatar/"+uid+"/"+rnd+".png",
 			function(err){
-				console.log(err)
+				if(err) console.log(err)
 			})
 	var payload = ["user:"+uid+":data"]
 	    payload.push("uid", uid)
@@ -111,6 +110,7 @@ this.create = function(req, res){
 	}else{
 			payload.push("access", bin.set(0, [0, 3]))
 	}
+	console.log(payload)
 	db.r.hmset(payload)
-	return res.redirect("/")
+	return res.redirect("/?m=shouldbeok")
 }
