@@ -1,7 +1,8 @@
 #fora{
 	height: 200px;
 	margin: 10px 0px; padding: 0px 0px 0px 100px;
-	background: url("/img/fora_generic.png") 0px 2px no-repeat;
+	background: url("/img/fora_icon.png") -5px 5px no-repeat,
+							url("/img/fora_bg.png") 0px 2px repeat-y;
 	border-collapse: separate; table-layout: fixed;
 	tr{
 		height: 22px;
@@ -12,7 +13,6 @@
 	}
 	td{
 		border: 1px solid $darker;
-		-webkit-transition: all 400ms ease;
 	}
 	td:nth-child(1){
 		width: 370px;
@@ -20,6 +20,7 @@
 			display: block;
 			padding-left: 10px;
 			color: $black; text-decoration: none;
+			-webkit-transition: background 400ms ease;
 			&:hover{
 				background: rgba(111, 96, 37, 0.5);
 			}
