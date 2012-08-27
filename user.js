@@ -88,6 +88,11 @@ this.create = function(req, res){
 	console.log(req.files.avatar)
 	
 	try{
+		fs.readdirSync("/mnt/avatar)
+	}catch(e){
+		fs.mkdirSync("/mnt/avatar)
+	}
+	try{
 		fs.readdirSync("/mnt/avatar/"+uid)
 	}catch(e){
 		fs.mkdirSync("/mnt/avatar/"+uid)
