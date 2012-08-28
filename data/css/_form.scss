@@ -108,7 +108,8 @@ form{
 		}
 	}
 	input[type="file"]{
-		display: none;
+		position: absolute;
+		opacity: 0;
 		&+label{
 			min-width: 0px;
 			padding-left: 22px; margin-bottom: 4px;

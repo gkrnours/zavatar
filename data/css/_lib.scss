@@ -1,0 +1,15 @@
+@mixin pushable{
+	box-shadow: 2px 2px 1px $black;
+	cursor: pointer;
+	&:hover, &:focus{
+		position: relative;
+			top: 1px; left: 1px;
+		box-shadow: 1px 1px 1px $black;
+		outline: none;
+	}
+	&:active{
+		position: relative;
+			top: 2px; left: 2px;
+		box-shadow: inset 2px 2px 1px $black;
+	}
+}

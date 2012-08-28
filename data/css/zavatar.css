@@ -90,8 +90,34 @@ body {
       padding: 0px 3px;
       color: black;
       text-decoration: none;
-      background-image: url("/img/btn.png");
-      border: 2px solid #6f6025; }
+      background-image: url("/img/bg.light.png");
+      border: 2px solid #6f6025;
+      box-shadow: 2px 2px 1px #070401;
+      cursor: pointer; }
+      body #main a.btn:hover, body #main a.btn:focus {
+        position: relative;
+        top: 1px;
+        left: 1px;
+        box-shadow: 1px 1px 1px #070401;
+        outline: none; }
+      body #main a.btn:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+        box-shadow: inset 2px 2px 1px #070401; }
+    body #main .title {
+      display: block;
+      padding: 12px 0px 0px 24px;
+      line-height: 24px;
+      background: -webkit-linear-gradient(45deg, #070401 13%, transparent 13%, transparent 25%, #070401 25%, #070401 38%, transparent 38%, transparent 50%, #070401 50%, #070401 64%, transparent 64%, transparent 75%, #070401 75%, #070401 88%, transparent 88%) top left repeat-x, -webkit-linear-gradient(45deg, #070401 13%, transparent 13%, transparent 25%, #070401 25%, #070401 38%, transparent 38%, transparent 50%, #070401 50%, #070401 64%, transparent 64%, transparent 75%, #070401 75%, #070401 88%, transparent 88%) top left repeat-y, url("/img/title.bg.png");
+      -webkit-background-size: 12px 12px, 12px 12px, auto;
+      border-left: 1px solid #070401;
+      border-top: 1px solid #070401; }
+      body #main .title a {
+        display: block;
+        -webkit-transition: background 400ms ease; }
+        body #main .title a:hover {
+          background: #8a7b3b; }
   body #fora {
     height: 125px;
     margin: 10px 0px;
@@ -244,7 +270,8 @@ body {
     body form input[type="radio"]:checked + label.todo, body form input[type="checkbox"]:checked + label.todo {
       text-decoration: line-through; }
   body form input[type="file"] {
-    display: none; }
+    position: absolute;
+    opacity: 0; }
     body form input[type="file"] + label {
       min-width: 0px;
       padding-left: 22px;

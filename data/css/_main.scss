@@ -3,7 +3,44 @@
 		a.btn{
 			padding: 0px 3px;
 			color: black; text-decoration: none;
-			background-image: url("/img/btn.png");
+			background-image: url("/img/bg.light.png");
 			border: 2px solid $darker;
+			@include pushable;
+		}
+		.title{
+			display: block;
+			padding: 12px 0px 0px 24px;
+			line-height: 24px;
+			background: 
+				-webkit-linear-gradient(45deg,
+					$black 13%, transparent 13%,
+					transparent 25%, $black 25%,
+					$black 38%, transparent 38%,
+					transparent 50%, $black 50%,
+					$black 64%, transparent 64%,
+					transparent 75%, $black 75%,
+					$black 88%, transparent 88%
+					) top left repeat-x,
+				-webkit-linear-gradient(45deg,
+					$black 13%, transparent 13%,
+					transparent 25%, $black 25%,
+					$black 38%, transparent 38%,
+					transparent 50%, $black 50%,
+					$black 64%, transparent 64%,
+					transparent 75%, $black 75%,
+					$black 88%, transparent 88%
+					) top left repeat-y,
+				//url("/img/title.deco.png") left no-repeat,
+				url("/img/title.bg.png");
+			-webkit-background-size: 12px 12px, 12px 12px, auto;
+			border-left: 1px solid $black;
+			border-top: 1px solid $black;
+			a{
+				display: block;
+				-webkit-transition: background 400ms ease;
+				&:hover{
+					background: $dark;
+				}
+			}
 		}
 	}
