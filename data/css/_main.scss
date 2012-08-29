@@ -1,12 +1,5 @@
 	#main{
 		padding: 0px 10px;
-		a.btn{
-			padding: 0px 3px;
-			color: black; text-decoration: none;
-			background-image: url("/img/bg.light.png");
-			border: 2px solid $darker;
-			@include pushable;
-		}
 		.title{
 			display: block;
 			padding: 12px 0px 0px 24px;

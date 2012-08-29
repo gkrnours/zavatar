@@ -7,6 +7,32 @@
 .right{
 	float: right !important;
 }
+.center{
+	text-align: center;
+}
+.S{
+	display: inline-block;
+	width: 100px;
+}
+.M{
+	display: inline-block;
+	width: 150px;
+}
+.L{
+	display: inline-block;
+	width: 225px;
+}
+.XL{
+	display: inline-block;
+	width: 325px;
+	&+&{
+		margin-left: 10px;
+	}
+}
+.btn{
+	@include button;
+	@include pushable;
+}
 
 html{
 	background-color: $black;
@@ -44,3 +70,4 @@ body{
 		}
 	}
 }
+
