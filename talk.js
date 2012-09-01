@@ -1,7 +1,7 @@
 var uuid = require("node-uuid")
 var util = require("./util.js")
-var fora = require("./fora.js")
 var db   = require("./db.js")
+var fora = require("./fora.js")
 
 
 this.list = function(req, res){
@@ -19,6 +19,8 @@ this.list = function(req, res){
 }
 this.read = function(req, res, next){
 	var tpl_val = util.mk_tpl_val(req)
+	    tpl_val.key = req.params.key
+	    tpl_val.sect = req.params.section
 	var page = req.params.page || 0
 	var request = db.r.multi()
 	    request.hgetall(["thread:"+req.params.key+":data"])
@@ -28,11 +30,11 @@ this.read = function(req, res, next){
 				if(err) return next(err)
 				tpl_val.data = rep[0]
 				tpl_val.messages = []
-				for(i=0; i<rep[1].length; ++i)
-					tpl_val.messages.push(JSON.parse(rep[1]))
+				for(i=0; i<rep[1].length; ++i){
+					tpl_val.messages.push(JSON.parse(rep[1][i]))
+				}
 				var people = db.r.multi()
 				for(ppl in rep[2]){
-					console.log(rep[2][ppl])
 					people.hgetall(["user:"+rep[2][ppl]+":data"])
 				}
 				people.exec(function(err, ppl){
@@ -67,7 +69,6 @@ this.add = function(req, res, next){
 		if(64   < req.body.subject.length) {
 			return res.redirect("/talk/new?e=subtoolong") 
 		}
-		req.body.opening = fora.format(req.body.opening)
 		// save
 		var what = {}
 				what.author = req.body.uid
@@ -77,5 +78,39 @@ this.add = function(req, res, next){
 		db.fora.create(req.session.me, "modo", what)
 
 		return res.redirect("/talk/modo/"+req.body.uid+"_"+req.body.post)
+	})
+}
+this.message = function(req, res){
+	var tpl_val = util.mk_tpl_val(req)
+	var token = uuid.v4()
+	tpl_val.token = token
+	tpl_val.sect = req.params.section
+	tpl_val.key = req.params.key
+	req.session.token = token
+	db.r.hmset(["secure:"+token, 
+			"uid", req.session.me.uid,
+			"key", req.params.key,
+			"section", req.params.section
+	])
+	db.r.expire(["secure:"+token, 4*60])
+
+	db.r.hgetall("thread:"+req.params.key+":data", function(err, rep){
+		tpl_val.thread = rep
+		res.render("talk_message", tpl_val)
+	})
+}
+this.reply = function(req, res, next){
+	if(req.session.token != req.body.token) 
+		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
+	db.r.hgetall(["secure:"+req.body.token], function(err, rep){
+		if(err) return next(err)
+		if(typeof(req.files) == "undefined"){
+			// manage adding a message
+			var what = {author: rep.uid, message: req.body.message, kind:"message"}
+			db.fora.add(req.session.me, req.body.key, what, function(err){
+				if(err) return next(err)
+			})
+		}
+		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	})
 }

@@ -18,9 +18,13 @@ this.setup = function setup(app){
 	app.post("/ask", ask.process)
 
 	app.get( "/talk", talk.list)
+	app.get( "/talk/:section/new", util.connected, talk.newt)
+	app.post("/talk/:section/new", util.connected, talk.add)
+	app.get( "/talk/:section/:key/message", util.connected, talk.message)
+	app.post("/talk/:section/:key/message", util.connected, talk.reply)
+	app.get( "/talk/:section/:key/image", util.connected, talk.image)
+	app.post("/talk/:section/:key/image", util.connected, talk.reply)
 	app.get( "/talk/:section/:key/:page?", talk.read)
-	app.get( "/talk/new", util.connected, talk.newt)
-	app.post("/talk/new", util.connected, talk.add)
 
 	app.get( "/user/?", user.search)
 	app.post("/user/?", user.searching)

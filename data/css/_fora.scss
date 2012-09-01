@@ -54,11 +54,12 @@
 			}
 			.avatar{
 				width: 80px;
+				border-right: 1px solid $black;
 			}
 		}
 		.author{
 			position: absolute;
-				top: 0px; left: 84px;
+				top: 0px; left: 85px;
 		}
 	}
 	dt:nth-child(4n+1){

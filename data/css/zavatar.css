@@ -191,11 +191,12 @@ body {
         body #forum dt .blind:hover {
           height: 80px; }
         body #forum dt .blind .avatar {
-          width: 80px; }
+          width: 80px;
+          border-right: 1px solid #070401; }
       body #forum dt .author {
         position: absolute;
         top: 0px;
-        left: 84px; }
+        left: 85px; }
     body #forum dt:nth-child(4n+1) {
       background: url("/img/bg.medium.png"); }
     body #forum dd {
