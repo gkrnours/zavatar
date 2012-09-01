@@ -21,10 +21,10 @@
 	border: 2px solid $darker;
 }
 
-@mixin transition($what: all, $time: 400ms, $how: ease){
-	-webkit-transition: $what $time $how;
-	-moz-transition: $what $time $how;
-	-ie-transition: $what $time $how;
-	-o-transition: $what $time $how;
-	transition: $what $time $how;
+@mixin transition($what: all, $time: 400ms, $how: ease, $when: 0ms){
+	-webkit-transition: $what $time $how $when;
+	-moz-transition: $what $time $how $when;
+	-ie-transition: $what $time $how $when;
+	-o-transition: $what $time $how $when;
+	transition: $what $time $how $when;
 }

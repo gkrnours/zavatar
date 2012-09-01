@@ -1,0 +1,16 @@
+{% extends "tpl.html" %} {% block main %}
+	<h2>Répondre à « {{thread.subject}} »</h2>
+	<form method="POST">
+		<input type="hidden" name="token" value="{{token}}">
+		<input type="hidden" name="section" value="{{sect}}">
+		<input type="hidden" name="key"     value="{{key}}">
+
+		<label for="message" class="fixe">Votre réponse</label>
+		<br>
+		<textarea id="message" name="message" maxlength="255"></textarea>
+		<hr>
+		<input class="L" type="submit">
+		<input class="L" type="reset">
+	</form>
+{% endblock main %}
+

@@ -64,12 +64,13 @@ form{
 		&+label{
 			@include button;
 			@include pushable;
-			@include transition(background-position);
-			background: url("/img/btn.checkable.gif") left top;
-			padding: 0px 5px 0px 15px;
+			@include transition(background-position, 600ms);
+			background: url("/img/toggle.state.png") top left no-repeat,
+								  url("/img/bg.light.png") top left;
+			padding-left: 16px;
 		}
 		&:checked+label{
-			background-position: bottom left;
+			background-position: bottom left, bottom left;
 		}
 		&+label.todo{
 			padding-left: 0px;
@@ -90,8 +91,9 @@ form{
 			@include button;
 			@include pushable;
 			@include transition(background-position);
-			padding: 0px 10px 0px 22px; margin-bottom: 4px;
-			background: url("/img/btn.file.gif") left top;
+			background: url("/img/toggle.photo.png") top left no-repeat,
+								  url("/img/bg.light.png") top left;
+			padding-left: 24px;
 		}
 		&:invalid+label{
 			background-position: left bottom ;

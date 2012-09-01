@@ -28,6 +28,12 @@
 .right {
   float: right !important; }
 
+.left {
+  float: left !important; }
+
+.clear {
+  clear: both; }
+
 .center {
   text-align: center; }
 
@@ -265,13 +271,13 @@ body {
       border: 2px solid #6f6025;
       box-shadow: 2px 2px 1px #070401;
       cursor: pointer;
-      -webkit-transition: background-position 400ms ease;
-      -moz-transition: background-position 400ms ease;
-      -ie-transition: background-position 400ms ease;
-      -o-transition: background-position 400ms ease;
-      transition: background-position 400ms ease;
-      background: url("/img/btn.checkable.gif") left top;
-      padding: 0px 5px 0px 15px; }
+      -webkit-transition: background-position 600ms ease 0ms;
+      -moz-transition: background-position 600ms ease 0ms;
+      -ie-transition: background-position 600ms ease 0ms;
+      -o-transition: background-position 600ms ease 0ms;
+      transition: background-position 600ms ease 0ms;
+      background: url("/img/toggle.state.png") top left no-repeat, url("/img/bg.light.png") top left;
+      padding-left: 16px; }
       body form input[type="radio"] + label:hover, body form input[type="radio"] + label:focus, body form input[type="checkbox"] + label:hover, body form input[type="checkbox"] + label:focus {
         position: relative;
         top: 1px;
@@ -284,7 +290,7 @@ body {
         left: 2px;
         box-shadow: inset 2px 2px 1px #070401; }
     body form input[type="radio"]:checked + label, body form input[type="checkbox"]:checked + label {
-      background-position: bottom left; }
+      background-position: bottom left, bottom left; }
     body form input[type="radio"] + label.todo, body form input[type="checkbox"] + label.todo {
       padding-left: 0px;
       background: none;
@@ -306,14 +312,13 @@ body {
       border: 2px solid #6f6025;
       box-shadow: 2px 2px 1px #070401;
       cursor: pointer;
-      -webkit-transition: background-position 400ms ease;
-      -moz-transition: background-position 400ms ease;
-      -ie-transition: background-position 400ms ease;
-      -o-transition: background-position 400ms ease;
-      transition: background-position 400ms ease;
-      padding: 0px 10px 0px 22px;
-      margin-bottom: 4px;
-      background: url("/img/btn.file.gif") left top; }
+      -webkit-transition: background-position 400ms ease 0ms;
+      -moz-transition: background-position 400ms ease 0ms;
+      -ie-transition: background-position 400ms ease 0ms;
+      -o-transition: background-position 400ms ease 0ms;
+      transition: background-position 400ms ease 0ms;
+      background: url("/img/toggle.photo.png") top left no-repeat, url("/img/bg.light.png") top left;
+      padding-left: 24px; }
       body form input[type="file"] + label:hover, body form input[type="file"] + label:focus {
         position: relative;
         top: 1px;
