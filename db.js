@@ -32,7 +32,8 @@ this.fora.add = function(who, where, what, next){
 	console.log(arguments)
 	who.post   = who.post   || 0
 	when = new Date()
-	what.message = fora.format(what.message)
+	if(what.message)
+		what.message = fora.format(what.message)
 	key = "thread:"+where+":"
 
 	var request = r.multi()

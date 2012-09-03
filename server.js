@@ -23,10 +23,11 @@ app.configure(function(){
 	app.use("/img", express.static(__dirname+"/data/img"))
 	app.use("/js",  express.static(__dirname+"/data/js"))
 	app.use("/avatar", express.static("/mnt/avatar"))
+	app.use("/image", express.static("/mnt/image"))
 
 	app.use(express.favicon("data/img/favicon.ico"));
 	app.use(express.logger('tiny'));
-	app.use(express.bodyParser());
+	app.use(express.bodyParser({"hash":"sha1"}));
 	app.use(express.cookieParser("greenish teddy"));
 	app.use(express.session({store: new rsStore(), secret:"greenish teddy",
 								cookie: {maxAge: 4*60*60*1000}}));

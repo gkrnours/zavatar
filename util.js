@@ -36,7 +36,7 @@ this.mk_tpl_val = function mk_tpl_val(req){
 }
 
 this.md5 = function(str){
-	return crypto.createHash("md5").update(str).digest("hex")
+	return crypto.createHash("sha512").update(str).digest("hex")
 }
 
 this.connected = function(req, res, next){

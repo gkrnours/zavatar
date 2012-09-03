@@ -1,6 +1,7 @@
 var uuid = require("node-uuid")
 var crypt= require("crypto")
 var fs   = require("fs")
+var image= require("./image.js")
 var util = require("./util.js")
 var bin  = require("./bin.js")
 var db   = require("./db.js")
@@ -83,26 +84,14 @@ this.create = function(req, res){
 	if(full) can = true
 	if(!can) return res.redirect("/user/new")
 
+	image.checkDir()
+
 	var uid = req.body.uid
-	var rnd = uuid.v4()
-	
-	try{
-		fs.readdirSync("/mnt/avatar")
-	}catch(e){
-		fs.mkdirSync("/mnt/avatar")
-	}
-	try{
-		fs.readdirSync("/mnt/avatar/"+uid)
-	}catch(e){
-		fs.mkdirSync("/mnt/avatar/"+uid)
-	}
-	fs.link(req.files.avatar.path, "/mnt/avatar/"+uid+"/"+rnd+".png",
-			function(err){
-				if(err) console.log(err)
-			})
+	var avatar = image.add(req.files.avatar, "avatar", req.body.name)
+
 	var payload = ["user:"+uid+":data"]
 	    payload.push("uid", uid)
-	    payload.push("avatar", "/avatar/"+uid+"/"+rnd+".png")
+	    payload.push("avatar", avatar)
 			payload.push("name", req.body.name)
 			payload.push("pass", util.md5(req.body.pass))
 	if(full){
@@ -110,7 +99,6 @@ this.create = function(req, res){
 	}else{
 			payload.push("access", bin.set(0, [0, 3]))
 	}
-	console.log(payload)
 	db.r.hmset(payload)
 	return res.redirect("/?m=shouldbeok")
 }

@@ -2,6 +2,7 @@ var uuid = require("node-uuid")
 var util = require("./util.js")
 var db   = require("./db.js")
 var fora = require("./fora.js")
+var image= require("./image.js")
 
 
 this.list = function(req, res){
@@ -124,24 +125,27 @@ this.reply = function(req, res, next){
 	if(req.session.token != req.body.token) 
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	db.r.hgetall(["secure:"+req.body.token], function(err, rep){
-		if(err) return next(err)
+		if(err || !rep) return next(err)
+		var what = {}
 		if(req.body.kind == "message"){
 			// manage adding a message
-			var what = {author: rep.uid, message: req.body.message, kind:"message"}
-			db.fora.add(req.session.me, req.body.key, what, function(err){
-				if(err) return next(err)
-			})
+			what = {author: rep.uid, message: req.body.message, kind:"message"}
 		}
 		else if(req.body.kind == "image"){
-			console.log(req.files)
+			var url = ""
 			if(req.files)
-				res.send(req.files)
-			return
+				url = image.add(req.files.image, "image", 0)
+			else
+				url = req.body.url
+			what = {author: rep.uid, url: url, kind:"image"}
 		}
 		else{
 			res.send(req.body)
 			return
 		}
+		db.fora.add(req.session.me, req.body.key, what, function(err){
+			if(err) return next(err)
+		})
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	})
 }
