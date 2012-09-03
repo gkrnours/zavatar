@@ -1,3 +1,4 @@
+
 fieldset{
 	margin: 0px; padding: 10px 10px 0px ;
 	border: 2px solid $black;
@@ -5,6 +6,7 @@ fieldset{
 		float: left;
 		width: 320px;
 		margin-left: 0px;
+		margin-bottom: 15px;
 		&+fieldset{
 			margin-left: 20px;
 		}
@@ -20,6 +22,7 @@ fieldset{
 		border-radius: 8px 0px 0px 0px;
 	}
 }
+
 form{
 	hr{
 		border-top: 1px solid $dark;
@@ -90,7 +93,7 @@ form{
 		&+label{
 			@include button;
 			@include pushable;
-			@include transition(background-position);
+			@include transition(background-position, 400ms, ease, 500ms);
 			background: url("/img/toggle.photo.png") top left no-repeat,
 								  url("/img/bg.light.png") top left;
 			padding-left: 24px;

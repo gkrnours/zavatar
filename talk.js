@@ -19,7 +19,7 @@ this.list = function(req, res){
 }
 this.read = function(req, res, next){
 	var tpl_val = util.mk_tpl_val(req)
-	    tpl_val.key = req.params.key
+	    tpl_val.kye = req.params.key
 	    tpl_val.sect = req.params.section
 	var page = req.params.page || 0
 	var request = db.r.multi()
@@ -42,6 +42,7 @@ this.read = function(req, res, next){
 					for(i in ppl){
 						tpl_val.ppl[ppl[i]["uid"]] = ppl[i]
 					}
+					console.log(tpl_val.key)
 					return res.render("talk_read", tpl_val)
 				})
 			})
@@ -85,7 +86,7 @@ this.message = function(req, res){
 	var token = uuid.v4()
 	tpl_val.token = token
 	tpl_val.sect = req.params.section
-	tpl_val.key = req.params.key
+	tpl_val.kye = req.params.key
 	req.session.token = token
 	db.r.hmset(["secure:"+token, 
 			"uid", req.session.me.uid,
@@ -99,17 +100,47 @@ this.message = function(req, res){
 		res.render("talk_message", tpl_val)
 	})
 }
+this.image = function(req, res){
+	var tpl_val = util.mk_tpl_val(req)
+	var token = uuid.v4()
+	tpl_val.token = token
+	tpl_val.sect = req.params.section
+	tpl_val.kye = req.params.key
+	req.session.token = token
+	db.r.hmset(["secure:"+token, 
+			"uid", req.session.me.uid,
+			"key", req.params.key,
+			"section", req.params.section
+	])
+	db.r.expire(["secure:"+token, 4*60])
+
+	db.r.hgetall("thread:"+req.params.key+":data", function(err, rep){
+		tpl_val.thread = rep
+		res.render("talk_image", tpl_val)
+	})
+}
 this.reply = function(req, res, next){
+	console.log(req.body)
 	if(req.session.token != req.body.token) 
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	db.r.hgetall(["secure:"+req.body.token], function(err, rep){
 		if(err) return next(err)
-		if(typeof(req.files) == "undefined"){
+		if(req.body.kind == "message"){
 			// manage adding a message
 			var what = {author: rep.uid, message: req.body.message, kind:"message"}
 			db.fora.add(req.session.me, req.body.key, what, function(err){
 				if(err) return next(err)
 			})
+		}
+		else if(req.body.kind == "image"){
+			console.log(req.files)
+			if(req.files)
+				res.send(req.files)
+			return
+		}
+		else{
+			res.send(req.body)
+			return
 		}
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	})

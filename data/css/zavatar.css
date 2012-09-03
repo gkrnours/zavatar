@@ -217,7 +217,8 @@ body {
     body fieldset.col {
       float: left;
       width: 320px;
-      margin-left: 0px; }
+      margin-left: 0px;
+      margin-bottom: 15px; }
       body fieldset.col + fieldset {
         margin-left: 20px; }
     body fieldset + hr {
@@ -312,11 +313,11 @@ body {
       border: 2px solid #6f6025;
       box-shadow: 2px 2px 1px #070401;
       cursor: pointer;
-      -webkit-transition: background-position 400ms ease 0ms;
-      -moz-transition: background-position 400ms ease 0ms;
-      -ie-transition: background-position 400ms ease 0ms;
-      -o-transition: background-position 400ms ease 0ms;
-      transition: background-position 400ms ease 0ms;
+      -webkit-transition: background-position 400ms ease 500ms;
+      -moz-transition: background-position 400ms ease 500ms;
+      -ie-transition: background-position 400ms ease 500ms;
+      -o-transition: background-position 400ms ease 500ms;
+      transition: background-position 400ms ease 500ms;
       background: url("/img/toggle.photo.png") top left no-repeat, url("/img/bg.light.png") top left;
       padding-left: 24px; }
       body form input[type="file"] + label:hover, body form input[type="file"] + label:focus {
