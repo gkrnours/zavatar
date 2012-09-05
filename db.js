@@ -39,10 +39,12 @@ this.fora.add = function(who, where, what, next){
 	var request = r.multi()
 	request.rpush([key+"messages", JSON.stringify(what)])
 	request.sadd([key+"people", who.uid])
-	request.hincrby([key+"data", "length", 1])
 	request.hset([key+"data", "last", when.getTime()])
 	request.exec(function(err){ if(err) console.log(err); next(err) })
 
+	r.llen([key+"messages"], function(err, rep){
+		r.hset([key+"data", "length", rep])
+	})
 	if(what.kind == "message")
 		r.hincrby(["user:"+who.uid+":data", "post",   1])
 	else if(what.kind == "image")

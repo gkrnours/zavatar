@@ -24,7 +24,6 @@ this.checkDir = function(){
 }
 
 this.add = function(file, where, data){
-	console.log(file)
 	var ext = extension[file.mime] || ".jpg"
 	var tgt = "/mnt/pool/"+file.hash+ext
 	var dst = ""
@@ -33,8 +32,8 @@ this.add = function(file, where, data){
 
 	if(where == "avatar"){
 		dst = "/avatar/"+slug(data)+ext
-	} else if(where == "mage"){
-		dst = "/images/"+data+"-"+slug(file.name)
+	} else if(where == "image"){
+		dst = "/images/"+data+"-"+slug(file.name)+ext
 	}
 	fs.link(tgt, "/mnt"+dst)
 	return dst

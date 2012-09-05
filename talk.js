@@ -43,7 +43,6 @@ this.read = function(req, res, next){
 					for(i in ppl){
 						tpl_val.ppl[ppl[i]["uid"]] = ppl[i]
 					}
-					console.log(tpl_val.key)
 					return res.render("talk_read", tpl_val)
 				})
 			})
@@ -121,7 +120,6 @@ this.image = function(req, res){
 	})
 }
 this.reply = function(req, res, next){
-	console.log(req.body)
 	if(req.session.token != req.body.token) 
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
 	db.r.hgetall(["secure:"+req.body.token], function(err, rep){
@@ -133,10 +131,12 @@ this.reply = function(req, res, next){
 		}
 		else if(req.body.kind == "image"){
 			var url = ""
-			if(req.files)
+			if(req.files){
 				url = image.add(req.files.image, "image", 0)
-			else
+			}
+			else {
 				url = req.body.url
+			}
 			what = {author: rep.uid, url: url, kind:"image"}
 		}
 		else{

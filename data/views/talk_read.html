@@ -9,7 +9,11 @@
 				</div>
 				<span class="author">{{ppl[msg.author].name}}</span>
 			</dt>
+			{% if msg.kind == "message" %} 
 			<dd>{{msg.message}}</dd>
+			{% else if msg.kind == "image" %}
+			<dd><img src="{{msg.url}}"></dd>
+			{% endif %}
 {% endfor %}		</dl>
 	<a class="XL btn center" href="/talk/{{sect}}/{{kye}}/message">Répondre</a>
 	<a class="XL btn center" href="/talk/{{sect}}/{{kye}}/image">Envoyer une image</a>

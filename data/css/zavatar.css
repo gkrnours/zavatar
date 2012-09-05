@@ -202,7 +202,8 @@ body {
       body #forum dt .author {
         position: absolute;
         top: 0px;
-        left: 85px; }
+        left: 85px;
+        text-shadow: 1px 1px 1px #d9d3b4; }
     body #forum dt:nth-child(4n+1) {
       background: url("/img/bg.medium.png"); }
     body #forum dd {
@@ -210,6 +211,8 @@ body {
       padding: 4px 8px;
       background: url("/img/bg.menu.png");
       color: #d9d3b4; }
+      body #forum dd img {
+        margin-top: 4px; }
   body fieldset {
     margin: 0px;
     padding: 10px 10px 0px;

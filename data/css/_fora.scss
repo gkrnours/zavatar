@@ -60,6 +60,7 @@
 		.author{
 			position: absolute;
 				top: 0px; left: 85px;
+			text-shadow: 1px 1px 1px $lighter;
 		}
 	}
 	dt:nth-child(4n+1){
@@ -69,5 +70,8 @@
 		margin-left: 0px; padding: 4px 8px;
 		background: url("/img/bg.menu.png");
 		color: $lighter;
+		img{
+			margin-top: 4px;
+		}
 	}
 }
