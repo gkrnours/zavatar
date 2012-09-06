@@ -54,7 +54,9 @@ form{
 	input[type="text"], input[type="password"]{
 		padding: 0px 1px; margin-bottom: 10px; margin-left: 0px;
 		background-image: url("/img/bg.medium.png");
-		border: 2px inset $darker;
+		border: 2px solid $darker;
+		border-top: 2px solid $shadow;
+		border-left: 2px solid $shadow;
 		&.dis{
 			color: $black;
 		}
@@ -118,6 +120,16 @@ form{
 		border: 2px solid $darker;
 		&:focus{
 			outline: none;
+		}
+	}
+	select{
+		-webkit-appearance: none;
+		@include button;
+		@include pushable;
+		font-family: "Linux Libertine";
+		margin: 3px 0px;
+		option{
+			line-height: 20px;
 		}
 	}
 	ul.aside{

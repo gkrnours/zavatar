@@ -85,7 +85,7 @@ html {
 body {
   margin: auto;
   width: 740px;
-  background-image: url("/img/bg.main.png"); }
+  background-image: url("/img/bg.main.gif"); }
   body #head, body #foot {
     display: block;
     height: 213px;
@@ -259,7 +259,9 @@ body {
     margin-bottom: 10px;
     margin-left: 0px;
     background-image: url("/img/bg.medium.png");
-    border: 2px inset #6f6025; }
+    border: 2px solid #6f6025;
+    border-top: 2px solid #1a1708;
+    border-left: 2px solid #1a1708; }
     body form input[type="text"].dis, body form input[type="password"].dis {
       color: #070401; }
     body form input[type="text"]:focus, body form input[type="password"]:focus {
@@ -368,6 +370,31 @@ body {
     border: 2px solid #6f6025; }
     body form textarea:focus {
       outline: none; }
+  body form select {
+    -webkit-appearance: none;
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    color: #070401;
+    text-decoration: none;
+    background-image: url("/img/bg.light.png");
+    border: 2px solid #6f6025;
+    box-shadow: 2px 2px 1px #070401;
+    cursor: pointer;
+    font-family: "Linux Libertine";
+    margin: 3px 0px; }
+    body form select:hover, body form select:focus {
+      position: relative;
+      top: 1px;
+      left: 1px;
+      box-shadow: 1px 1px 1px #070401;
+      outline: none; }
+    body form select:active {
+      position: relative;
+      top: 2px;
+      left: 2px;
+      box-shadow: inset 2px 2px 1px #070401; }
+    body form select option {
+      line-height: 20px; }
   body form ul.aside {
     float: right;
     margin: 0px;
