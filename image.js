@@ -1,4 +1,5 @@
 var fs = require("fs")
+var db = require("./db.js")
 
 var extension = {
 	"image/gif": ".gif",
@@ -23,7 +24,7 @@ this.checkDir = function(){
 	}
 }
 
-this.add = function(file, where, data){
+this.add = function(file, where, data, who){
 	var ext = extension[file.mime] || ".jpg"
 	var tgt = "/mnt/pool/"+file.hash+ext
 	var dst = ""
@@ -36,5 +37,9 @@ this.add = function(file, where, data){
 		dst = "/images/"+data+"-"+slug(file.name)+ext
 	}
 	fs.link(tgt, "/mnt"+dst)
+
+	var payload = JSON.stringify({name:file.name,url:dst})
+	db.r.sadd(["user:"+who.uid+":images", payload])
+	
 	return dst
 }

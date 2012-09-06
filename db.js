@@ -29,7 +29,6 @@ this.fora.create = function(who, where, what){
 	request.exec(function(err){ if(err) console.log("oops"); console.log(err) })
 }
 this.fora.add = function(who, where, what, next){
-	console.log(arguments)
 	who.post   = who.post   || 0
 	when = new Date()
 	if(what.message)

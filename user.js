@@ -69,7 +69,7 @@ this.search = function(req, res){
 	return res.render("user_search", tpl_val)
 }
 this.searching = function(req, res){
-	console.log(req.body)
+	// @TODO real search
 	res.redirect("/user/"+req.body.search)
 }
 

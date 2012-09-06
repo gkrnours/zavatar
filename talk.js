@@ -114,8 +114,12 @@ this.image = function(req, res){
 	])
 	db.r.expire(["secure:"+token, 4*60])
 
-	db.r.hgetall("thread:"+req.params.key+":data", function(err, rep){
-		tpl_val.thread = rep
+	var request = db.r.multi()
+	request.hgetall(["thread:"+req.params.key+":data"])
+	request.smembers(["user:"+req.session.me.uid+":images"])
+	request.exec(function(err, rep){
+		tpl_val.thread = rep[0]
+		tpl_val.images = rep[1]
 		res.render("talk_image", tpl_val)
 	})
 }
@@ -128,18 +132,18 @@ this.reply = function(req, res, next){
 		if(req.body.kind == "message"){
 			// manage adding a message
 			what = {author: rep.uid, message: req.body.message, kind:"message"}
-		}
-		else if(req.body.kind == "image"){
+
+		} else if(req.body.kind == "image"){
+			// manage adding an image
 			var url = ""
-			if(req.files){
-				url = image.add(req.files.image, "image", 0)
-			}
-			else {
-				url = req.body.url
+			if(req.files && req.files.file && req.files.file.size != 0){
+				url = image.add(req.files.file, "image", 0, req.session.me)
+			} else {
+				url = req.body.image
 			}
 			what = {author: rep.uid, url: url, kind:"image"}
-		}
-		else{
+
+		} else{
 			res.send(req.body)
 			return
 		}

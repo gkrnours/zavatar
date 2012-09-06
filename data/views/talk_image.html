@@ -3,14 +3,20 @@
 	<fieldset class="col">
 	</fieldset>
 	<fieldset class="col">
+		<legend>Juste une image</legend>
 		<form method="POST" enctype="multipart/form-data" novalidate>
 			<input type="hidden" name="token" value="{{token}}">
 			<input type="hidden" name="section" value="{{sect}}">
 			<input type="hidden" name="kind"    value="image">
 			<input type="hidden" name="key"     value="{{kye}}">
 
-			<input type="file" id="file" name="image" required>
-			<label for="file" class="L fixe">Choisir une image</label>
+			<input type="file" id="file" name="file" required>
+			<label for="file" class="L fixe">Choisir une nouvelle image</label>
+			<hr>
+			<label for="image" class="fixe">Réutiliser une image</label><br>
+			<select id="image" name="image" class="L">{% for img in images %}
+				<option value="{{img|json("url")}}">{{img|json("name")}}</option>
+			{% endfor %}</select>
 			<hr>
 			<input class="M" type="submit">
 			<input class="M" type="reset">
