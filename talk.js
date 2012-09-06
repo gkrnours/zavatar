@@ -123,6 +123,7 @@ this.image = function(req, res){
 		res.render("talk_image", tpl_val)
 	})
 }
+
 this.reply = function(req, res, next){
 	if(req.session.token != req.body.token) 
 		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
@@ -141,7 +142,7 @@ this.reply = function(req, res, next){
 			} else {
 				url = req.body.image
 			}
-			what = {author: rep.uid, url: url, kind:"image"}
+			what = {author:rep.uid, url:url, kind:"image"}
 
 		} else{
 			res.send(req.body)
@@ -150,6 +151,9 @@ this.reply = function(req, res, next){
 		db.fora.add(req.session.me, req.body.key, what, function(err){
 			if(err) return next(err)
 		})
-		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
+		db.r.hget(["thread:"+req.body.key+":data", "length"], function(err, rep){
+			var url = "/talk/"+req.body.section+"/"+req.body.key
+			return res.redirect(url+"/"+Math.floor(rep/10))
+		})
 	})
 }

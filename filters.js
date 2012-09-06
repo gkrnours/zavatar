@@ -10,3 +10,8 @@ this.linebreaksbr = function(txt){
 this.json = function(txt, attr){
 	return JSON.parse(txt)[attr]
 }
+
+this.page = function(thread){
+	console.log(thread.length)
+	return Math.floor(thread.length/10)
+}
