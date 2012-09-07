@@ -39,7 +39,8 @@ this.add = function(file, where, data, who){
 	fs.link(tgt, "/mnt"+dst)
 
 	var payload = JSON.stringify({name:file.name,url:dst})
-	db.r.sadd(["user:"+who.uid+":images", payload])
+	if(who)
+		db.r.sadd(["user:"+who.uid+":images", payload])
 	
 	return dst
 }
