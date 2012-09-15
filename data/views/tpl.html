@@ -14,16 +14,16 @@
 		<li>{{token}}</li>
 		<li>{{me}}</li>
 		<hr>
-		{% for x in me %}
+		{% for x in me -%}
 			<li>{{loop.key}} - {{x}}</li>
-		{% endfor %}
+		{%- endfor %}
 		<hr>
 		<li>{{ses}}</li>
 		{% for x in ses %}
 		<li>{{loop.key}} - {{x}}</li>
-			{% for y in x %}
+			{% for y in x -%}
 				<li>{{loop.key}} - {{y}}</li>
-			{% endfor %}
+			{%- endfor %}
 		{% endfor %}
 	</ul>
 	<a href="/" id="head"></a>
@@ -37,10 +37,10 @@
 		<li><a href="/ask">
 			<img src="/img/icon/harcel.png"> Demander
 		</a></li>
-		<li><a href="">
+		<li><a href="/talk/fixe">
 			<img src="/img/icon/item_bone_meat.gif"> Etre gentil
 		</a></li>
-		<li><a href="/talk">
+		<li><a href="/talk/modo">
 			<img src="/img/icon/chat.gif"> Discuter
 		</a></li>
 		<li class="right">
@@ -52,6 +52,6 @@
 	</ul>
 	<div id="main">{%block main%}
 	{%endblock main%}	</div>
-	<div id="foot"></div>
+	<div id="foot" class="clear"></div>
 </body>
 </html>
