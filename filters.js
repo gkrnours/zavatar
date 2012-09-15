@@ -12,6 +12,8 @@ this.json = function(txt, attr){
 }
 
 this.page = function(thread){
-	console.log(thread.length)
 	return Math.floor(thread.length/10)
+}
+this.fora = function(txt){
+	return txt.split("/")[1]
 }

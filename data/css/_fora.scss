@@ -1,3 +1,19 @@
+.btn.fora{
+	margin-bottom: 10px;
+}
+.btn.fora.left{
+	margin-left: 8px;
+	&+.btn.fora.left{
+		margin-left: 4px;
+	}
+}
+.btn.fora.right{
+	margin-right: 10px;
+	&+.btn.fora.right{
+		margin-right: 4px;
+	}
+}
+
 #fora{
 	height: 125px;
 	margin: 10px 0px; padding: 0px 0px 0px 100px;
@@ -35,6 +51,7 @@
 	}
 }
 #forum{
+	clear: both;
 	margin: 10px 9px;
 	border-left:  1px solid $black;
 	border-right: 1px solid $black;

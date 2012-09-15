@@ -6,8 +6,10 @@ var image= require("./image.js")
 
 
 this.list = function(req, res){
+	var section = req.params.section || "fixe"
 	var tpl_val = util.mk_tpl_val(req)
-	db.r.zrange(["forum:modo:list", 0, 20], function(err, threads){
+	db.r.zrange(["forum:"+section+":list", 0, 20], function(err, threads){
+		console.log(threads)
 		var request = db.r.multi()
 		for(i in threads){
 			request.hgetall(["thread:"+threads[i]+":data"])
@@ -23,26 +25,32 @@ this.read = function(req, res, next){
 	    tpl_val.kye = req.params.key
 	    tpl_val.sect = req.params.section
 	var page = req.params.page || 0
+
 	var request = db.r.multi()
 	    request.hgetall(["thread:"+req.params.key+":data"])
 			request.lrange(["thread:"+req.params.key+":messages",page*10,page*10+9])
 			request.smembers(["thread:"+req.params.key+":people"])
 			request.exec(function(err, rep){
 				if(err) return next(err)
+
 				tpl_val.data = rep[0]
 				tpl_val.messages = []
-				for(i=0; i<rep[1].length; ++i){
+				for(i=0; i<rep[1].length; ++i)
 					tpl_val.messages.push(JSON.parse(rep[1][i]))
+
+				if(9 < rep[0].length){
+					tpl_val.pages = []
+					for(i=0; i<rep[0].length; i+=10)
+						tpl_val.pages.push(i/10)
 				}
+
 				var people = db.r.multi()
-				for(ppl in rep[2]){
+				for(ppl in rep[2])
 					people.hgetall(["user:"+rep[2][ppl]+":data"])
-				}
 				people.exec(function(err, ppl){
 					tpl_val.ppl = {}
-					for(i in ppl){
+					for(i in ppl)
 						tpl_val.ppl[ppl[i]["uid"]] = ppl[i]
-					}
 					return res.render("talk_read", tpl_val)
 				})
 			})
@@ -78,7 +86,7 @@ this.add = function(req, res, next){
 				what.kind = "message"
 		db.fora.create(req.session.me, "modo", what)
 
-		return res.redirect("/talk/modo/"+req.body.uid+"_"+req.body.post)
+		return res.redirect("/talk/modo/"+req.body.uid+"_"+req.body.thread)
 	})
 }
 this.message = function(req, res){
