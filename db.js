@@ -5,6 +5,16 @@ var r = new redis.createClient(process.env.RSPORT || 6379)
 this.r = r
 
 this.fora = {}
+/**
+ *
+ * who req.me
+ * where section
+ * what.author = uid
+ * what.kind "message,...."
+ * what.subject 
+ * what.message
+ *
+ **/
 this.fora.create = function(who, where, what){
 	who.thread = who.thread || 0
 	who.post   = who.post   || 0
