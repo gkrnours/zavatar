@@ -1,0 +1,94 @@
+.btn.fora{
+	margin-bottom: 10px;
+}
+.btn.fora.left{
+	margin-left: 8px;
+	&+.btn.fora.left{
+		margin-left: 4px;
+	}
+}
+.btn.fora.right{
+	margin-right: 10px;
+	&+.btn.fora.right{
+		margin-right: 4px;
+	}
+}
+
+#fora{
+	height: 125px;
+	margin: 10px 0px; padding: 0px 0px 0px 100px;
+	background: url("/img/fora_icon.png") -5px 5px no-repeat;
+	border-collapse: separate; table-layout: fixed;
+	tr{
+		height: 22px;
+		background-image: url("/img/bg.light.png");
+		&.filler{
+			height: auto;
+		}
+	}
+	td{
+		border: 1px solid $darker;
+	}
+	td:nth-child(1){
+		width: 370px;
+		a{
+			display: block;
+			padding-left: 10px;
+			color: $black; text-decoration: none;
+			-webkit-transition: background 400ms ease;
+			&:hover{
+				background: rgba(111, 96, 37, 0.5);
+			}
+		}
+	}
+	td:nth-child(2){
+		width: 170px;
+	}
+	td:nth-child(3){
+		width: 40px;
+		padding-right: 10px;
+		text-align: right;
+	}
+}
+#forum{
+	clear: both;
+	margin: 10px 9px;
+	border-left:  1px solid $black;
+	border-right: 1px solid $black;
+	dt{
+		position: relative;
+		height: 40px;
+		background: url("/img/bg.light.png");
+		border-bottom: 1px solid $black;
+		.blind{
+			position: absolute;
+				top: 0px; left: 0px;
+			height: 40px;
+			overflow: hidden;
+			-webkit-transition: height 400ms ease;
+			&:hover{
+				height: 80px;
+			}
+			.avatar{
+				width: 80px;
+				border-right: 1px solid $black;
+			}
+		}
+		.author{
+			position: absolute;
+				top: 0px; left: 85px;
+			text-shadow: 1px 1px 1px $lighter;
+		}
+	}
+	dt:nth-of-type(2n+1){
+		background: url("/img/bg.medium.png");
+	}
+	dd{
+		margin-left: 0px; padding: 4px 8px;
+		background: url("/img/bg.menu.png");
+		color: $lighter;
+		img{
+			margin-top: 4px;
+		}
+	}
+}

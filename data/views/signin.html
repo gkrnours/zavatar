@@ -1,0 +1,21 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+		<h2>Connexion Manuelle</h2>
+		<form method="post">
+			<p>
+				<input type="hidden" name="kind" value="manual">
+				<label for="uid" class="fixe">Identifiant</label>
+				<input type="text" name="uid" id="uid" class="L">
+				<br>
+				<label for="pass" class="fixe">Mot de Passe</label>
+				<input type="password" name="pass" id="pass" class="L">
+				<br>
+			</p>
+			<hr>
+			<p>
+				<input type="submit" class="XL" value="Connexion ! ">
+			</p>
+		</form>
+{% endblock main %}
+

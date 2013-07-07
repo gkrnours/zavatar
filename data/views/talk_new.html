@@ -1,0 +1,19 @@
+{% extends "tpl.html" %} {% block main %}
+	<h2>Créer un nouveau sujet de discussion</h2>
+	<form method="POST">
+		<input type="hidden" name="token" value="{{token}}">
+		<input type="hidden" name="uid"  value="{{me.uid}}">
+		<input type="hidden" name="post" value="{{me.post|default(0)}}">
+
+		<label for="subject" class="fixe">Sujet</label>
+		<input type="text" id="subject" name="subject" class="L" maxlength="64">
+		<br>
+		<label for="opening" class="fixe">Message</label>
+		<br>
+		<textarea id="opening" name="opening" maxlength="1024"></textarea>
+		<hr>
+		<input type="submit" class="L" value="Je me suis relu.">
+		<input type="reset" class="L" value="Non, ça ne va pas du tout.">
+	</form>
+{% endblock main %}
+

@@ -1,0 +1,7 @@
+{% macro btn_access mask access tag name -%}
+	<input type="checkbox" id="a_{{tag}}" value="{{access}}" name="access[]" {%
+	if (mask|hasAccess(access)) -%} checked {%- endif%} >
+	<label class="L"      for="a_{{tag}}">{{name}}</label>
+{%- endmacro %}
+
+

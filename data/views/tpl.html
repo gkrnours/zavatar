@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{%block title%}Zavatar{%endblock%}
+		{%block post_title%}{%endblock%}</title>
+	<link rel="StyleSheet" href="/css/zavatar.css"/>
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+	<ul id="debug">
+		<hr>
+		<li>{{token}}</li>
+		<li>{{me}}</li>
+		<hr>
+		{% for x in me -%}
+			<li>{{loop.key}} - {{x}}</li>
+		{%- endfor %}
+		<hr>
+		<li>{{ses}}</li>
+		{% for x in ses %}
+		<li>{{loop.key}} - {{x}}</li>
+			{% for y in x -%}
+				<li>{{loop.key}} - {{y}}</li>
+			{%- endfor %}
+		{% endfor %}
+	</ul>
+	<a href="/" id="head"></a>
+	<ul id="menu">
+		<li><a href="">
+			<img src="/img/icon/teddy.png"> Accueil
+		</a></li>
+		<li><a href="">
+			<img src="/img/icon/h_zavatarian.gif"> Zavatariens
+		</a></li>
+		<li><a href="/ask">
+			<img src="/img/icon/harcel.png"> Demander
+		</a></li>
+		<li><a href="/talk/fixe">
+			<img src="/img/icon/item_bone_meat.gif"> Etre gentil
+		</a></li>
+		<li><a href="/talk/modo">
+			<img src="/img/icon/chat.gif"> Discuter
+		</a></li>
+		<li class="right">
+			{% if me %}<a href="/logout">
+				<img src="/img/icon/death.gif"> Partir
+			{% else %}<a href="/login">
+				<img src="/img/icon/h_door.gif"> &nbsp;Entrer
+		{% endif %}</a></li>
+	</ul>
+	<div id="main">{%block main%}
+	{%endblock main%}	</div>
+	<div id="foot" class="clear"></div>
+</body>
+</html>

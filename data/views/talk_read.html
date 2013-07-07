@@ -1,0 +1,35 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+		<h2>{{data.subject}}</h2>
+
+<a class="btn fora left" href="/{{data.link|fora}}">Retour</a>
+{% for page in pages|reverse -%}
+	<a class="btn fora right" href="{{data.link}}/{{page}}">{{page}}</a>
+{%- endfor %}
+
+		<dl id="forum">{% for msg in messages %}
+			<dt>
+				<div class="blind">
+					<img class="avatar" src="{{ppl[msg.author].avatar}}"> 
+				</div>
+				<span class="author">{{ppl[msg.author].name}}</span>
+			</dt>
+			{% if msg.kind == "message" %} 
+			<dd>{{msg.message}}</dd>
+			{% else if msg.kind == "image" %}
+			<dd><img src="{{msg.url}}"></dd>
+			{% endif %}
+{% endfor %}		</dl>
+
+<a class="btn fora left" href="/{{data.link|fora}}">Retour</a>
+{% for page in pages -%}
+	<a class="btn fora right" href="{{data.link}}/{{page}}">{{page}}</a>
+{%- endfor %}
+{% if me %}
+	<hr class="clear">
+	<a class="XL btn center" href="/talk/{{sect}}/{{kye}}/message">Répondre</a>
+	<a class="XL btn center" href="/talk/{{sect}}/{{kye}}/image">Envoyer une image</a>
+{% endif %}
+{% endblock main %}
+

@@ -1,0 +1,148 @@
+
+fieldset{
+	margin: 0px; padding: 10px 10px 0px ;
+	border: 2px solid $black;
+	&.col{
+		float: left;
+		width: 320px;
+		margin-left: 0px;
+		margin-bottom: 15px;
+		&+fieldset{
+			margin-left: 20px;
+		}
+	}
+	&+hr{
+		clear: left;
+		border: none;
+	}
+	legend{
+		padding: 0px 5px;
+		font-weight: bold;
+		background: rgba(255,255,255,0.35);
+		border-radius: 8px 0px 0px 0px;
+	}
+}
+
+form{
+	hr{
+		border-top: 1px solid $dark;
+		border-right: 3px solid $dark;
+		border-bottom: 2px solid $light;
+		border-left: 3px solid $light;
+	}
+	h3{
+		margin: 20px 0px 5px 0px;
+	}
+	label{
+		padding: 0px 3px; margin: 0px 10px 0px 0px;
+		background-image: url("/img/bg.light.png");
+		border: 2px solid $darker;
+		cursor: pointer;
+		&.fixe{
+			display: inline-block;
+			min-width: 100px;
+		}
+		&.M{
+			display: inline-block;
+			width: 170px;
+		}
+		&.todo{
+			background: none;
+			border: none;
+		}
+	}
+	input[type="text"], input[type="password"]{
+		padding: 0px 1px; margin-bottom: 10px; margin-left: 0px;
+		background-image: url("/img/bg.medium.png");
+		border: 2px solid $darker;
+		border-top: 2px solid $shadow;
+		border-left: 2px solid $shadow;
+		&.dis{
+			color: $black;
+		}
+		&:focus{
+			outline-color: $darker;
+		}
+	}
+	input[type="radio"], input[type="checkbox"]{
+		display: none;
+		&+label{
+			@include button;
+			@include pushable;
+			@include transition(background-position, 600ms);
+			background: url("/img/toggle.state.png") top left no-repeat,
+								  url("/img/bg.light.png") top left;
+			padding-left: 16px;
+		}
+		&:checked+label{
+			background-position: bottom left, bottom left;
+		}
+		&+label.todo{
+			padding-left: 0px;
+			background: none; border: none;
+			box-shadow: none;
+		}
+		&+label.todo:hover{
+			position: static;
+		}
+		&:checked+label.todo{
+			text-decoration: line-through;
+		}
+	}
+	input[type="file"]{
+		position: absolute;
+		opacity: 0;
+		&+label{
+			@include button;
+			@include pushable;
+			@include transition(background-position, 400ms, ease, 500ms);
+			background: url("/img/toggle.photo.png") top left no-repeat,
+								  url("/img/bg.light.png") top left;
+			padding-left: 24px;
+		}
+		&:invalid+label{
+			background-position: left bottom ;
+		}
+	}
+	input[type="submit"], input[type="button"], input[type="reset"]{
+		@include button;
+		@include pushable;
+		font-family: "Linux Libertine";
+		&+input{
+			margin-left: 10px;
+		}
+	}
+	textarea{
+		margin: 3px 0px 0px 0px;
+		width: 500px; height: 150px;
+		background-image: url("/img/bg.menu.png");
+		color: $light;
+		border: 2px solid $darker;
+		&:focus{
+			outline: none;
+		}
+	}
+	select{
+		-webkit-appearance: none;
+		@include button;
+		@include pushable;
+		font-family: "Linux Libertine";
+		margin: 3px 0px;
+		option{
+			line-height: 20px;
+		}
+	}
+	ul.aside{
+		float: right;
+		margin: 0px; padding: 0px;
+		width: 200px;
+		li{
+			margin: 0px 0px 5px 0px; padding: 0px;
+			list-style: none;
+			&.head{
+				font-size: 20px;
+				font-weight: bold;
+			}
+		}
+	}
+}

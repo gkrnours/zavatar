@@ -1,5 +1,4 @@
 var uuid = require("node-uuid")
-var l    = require("logly")
 var util = require("./util.js")
 var db   = require("./db.js")
 var fora = require("./fora.js")
@@ -10,6 +9,7 @@ this.list = function(req, res){
 	var section = req.params.section || "fixe"
 	var tpl_val = util.mk_tpl_val(req)
 	db.r.zrange(["forum:"+section+":list", 0, 20], function(err, threads){
+		console.log(threads)
 		var request = db.r.multi()
 		for(i in threads){
 			request.hgetall(["thread:"+threads[i]+":data"])
@@ -38,19 +38,19 @@ this.read = function(req, res, next){
 				for(i=0; i<rep[1].length; ++i)
 					tpl_val.messages.push(JSON.parse(rep[1][i]))
 
-				if(rep[0] && 9 < rep[0].length){
+				if(9 < rep[0].length){
 					tpl_val.pages = []
 					for(i=0; i<rep[0].length; i+=10)
 						tpl_val.pages.push(i/10)
 				}
 
-				var people = []
+				var people = db.r.multi()
 				for(ppl in rep[2])
-					people.push("user:"+rep[2][ppl])
-				db.d.get(people, function(err, ppl){
+					people.hgetall(["user:"+rep[2][ppl]+":data"])
+				people.exec(function(err, ppl){
 					tpl_val.ppl = {}
 					for(i in ppl)
-						tpl_val.ppl[ppl[i].doc.uid] = ppl[i].doc
+						tpl_val.ppl[ppl[i]["uid"]] = ppl[i]
 					return res.render("talk_read", tpl_val)
 				})
 			})
@@ -85,7 +85,6 @@ this.add = function(req, res, next){
 				what.subject = req.body.subject
 				what.kind = "message"
 		db.fora.create(req.session.me, "modo", what)
-		db.save // TODO
 
 		return res.redirect("/talk/modo/"+req.body.uid+"_"+req.body.thread)
 	})
@@ -125,6 +124,7 @@ this.image = function(req, res){
 
 	var request = db.r.multi()
 	request.hgetall(["thread:"+req.params.key+":data"])
+	request.smembers(["user:"+req.session.me.uid+":images"])
 	request.exec(function(err, rep){
 		tpl_val.thread = rep[0]
 		tpl_val.images = rep[1]
@@ -133,25 +133,32 @@ this.image = function(req, res){
 }
 
 this.reply = function(req, res, next){
-	db.r.hgetall(["secure:"+req.session.token], function(err, rep){
-		if(err || !rep){ l.error(JSON.stringify(err)); return next(err) } // oops, token look bad
-
-		// build data to save
-		var what = {kind: req.body.kind, author: rep.uid}
+	if(req.session.token != req.body.token) 
+		return res.redirect("/talk/"+req.body.section+"/"+req.body.key)
+	db.r.hgetall(["secure:"+req.body.token], function(err, rep){
+		if(err || !rep) return next(err)
+		var what = {}
 		if(req.body.kind == "message"){
-			what.message = req.body.message
-		} 
-		else if(req.body.kind == "image"){
-			if(req.files && req.files.file && req.files.file.size != 0)
-				what.url = image.add(req.files.file, "image", 0, req.session.me)
-			else
-				what.url = req.body.image
-		} 
+			// manage adding a message
+			what = {author: rep.uid, message: req.body.message, kind:"message"}
 
-		db.fora.add(req.session.me, req.body.key, what, function(err){ 
-			if(err) return next(err) 
+		} else if(req.body.kind == "image"){
+			// manage adding an image
+			var url = ""
+			if(req.files && req.files.file && req.files.file.size != 0){
+				url = image.add(req.files.file, "image", 0, req.session.me)
+			} else {
+				url = req.body.image
+			}
+			what = {author:rep.uid, url:url, kind:"image"}
+
+		} else{
+			res.send(req.body)
+			return
+		}
+		db.fora.add(req.session.me, req.body.key, what, function(err){
+			if(err) return next(err)
 		})
-
 		db.r.hget(["thread:"+req.body.key+":data", "length"], function(err, rep){
 			var url = "/talk/"+req.body.section+"/"+req.body.key
 			return res.redirect(url+"/"+Math.floor(rep/10))
