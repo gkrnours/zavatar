@@ -1,11 +1,8 @@
 {
 	"name": "boulangerie",
 	"description": "Au Bon Gout, site web",
-	"version": "0.0.201306",
+	"version": "0.0.201212",
 	"private": true,
-	"scripts": {
-		"start": "node server.js"
-	},
 	"dependencies": {
 		"express":      "3.x",
 		"consolidate":  "0.6.x",
