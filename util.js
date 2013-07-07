@@ -1,3 +1,4 @@
+var l      = require("logly")
 var crypto = require("crypto")
 var db   = require("./db.js")
 var err_txt = {} 
@@ -38,10 +39,13 @@ this.mk_tpl_val = function mk_tpl_val(req){
 this.md5 = function(str){
 	return crypto.createHash("sha512").update(str).digest("hex")
 }
+this.forget = function(err){
+	if(err) l.error(JSON.stringify(err))
+}
 
 this.connected = function(req, res, next){
 	if(req && req.session && req.session.me)
-		db.r.hgetall("user:"+req.session.me.uid+":data", function(err, rep){
+		db.d.get("user:"+req.session.me.uid, function(err, rep){
 			req.session.me = rep
 			next()
 		})

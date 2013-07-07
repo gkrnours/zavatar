@@ -1,0 +1,28 @@
+{% extends 'admin/base.html'%}
+
+{%block main%}
+	<fieldset>
+		<legend>Menu</legend>
+
+		<label>Entrée dans le menu</label>
+		<label>Page associée</label>
+		<form id="f_menu" action="/admin/menu/update" method="post">
+		{%for m in menu%}
+			<input type="text" name="name" value="{{m.value.name}}">
+			<select name="page">
+				<option>------</option>{%for p in page%}
+				<option value="{{p.key.id}}" {%if p.key.id == m.value.pid%}selected{%endif%}>
+					{{p.value.name}}</option>{%endfor%}
+				<option value="###"># Supprimer #</option>
+			</select>
+		{%endfor%}
+		<hr>
+			<input type="submit" value="Enregistrer">
+			<input type="reset"  value="Remettre à zero">
+		</form>
+		<hr>
+		<form action="/admin/menu/create" method="post">
+			<input type="submit" value="Aggrandir le menu">
+		</form>
+	</fieldset>
+{%endblock%}

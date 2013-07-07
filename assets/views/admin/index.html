@@ -1,0 +1,43 @@
+{% extends 'admin/base.html'%}
+
+{#
+{%block menu%}
+	<fieldset>
+		<legend>Menu</legend>
+		<form id="f_menu" action="/admin/menu/update" method="post">
+		{%for i in menu%}
+			<input type="text" name="name" value="{{i.key}}">
+			<select name="page"> 
+				<option value="{{i.value}}">{{i.value}}</option>
+			</select>
+		{%endfor%}
+			<input type="submit" value="Enregistrer">
+		</form>
+		<hr>
+		<form action="/admin/menu/create" method="post">
+			<input type="submit" value="Aggrandir le menu">
+		</form>
+	</fieldset>
+{%endblock%}
+
+{%block main%}
+	<fieldset>
+		<legend>Pages</legend>
+		<label>Page</label>
+		<form action="/admin/page/update" method="post">
+			<select name="page"> 
+				<option value="new">Nouvelle page</option>
+			</select>
+
+			<label>Nom</label>
+			<input type="text" name="name" value="">
+
+			<label>Contenu</label>
+			<textarea name="content"></textarea>
+			<hr>
+
+			<input type="submit" value="Enregistrer">
+		</form>
+	</fieldset>
+{%endblock%}
+#}
