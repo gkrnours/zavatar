@@ -1,0 +1,11 @@
+{% extends "tpl.html" %}
+
+{% block main %}
+	<ul id="users">
+		{% for user in list %}<li>
+			<img src="{{user.value.avatar}}" alt="avatar">
+			<a href="/user/{{user.value.uid}}">{{user.value.name}}</a>
+		</li>{% endfor %}
+	</ul>
+{% endblock main %}
+
